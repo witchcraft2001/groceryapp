@@ -1,10 +1,12 @@
 // Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:grocery_app/features/catalog/domain/entity/category.dart';
+import 'package:grocery_app/features/catalog/domain/interactor/products_interactor.dart';
+import 'package:injectable/injectable.dart';
+
 import '../../../../core/data/service/log_service.dart';
 import '../../domain/interactor/categories_interactor.dart';
 import 'catalog_view_state.dart';
@@ -18,11 +20,13 @@ part 'catalog_state.dart';
 @injectable
 class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   final CategoriesInteractor _categoriesInteractor;
+  final ProductsInteractor _productsInteractor;
   final LogService _logService;
 
   CatalogBloc(
     this._categoriesInteractor,
     this._logService,
+    this._productsInteractor,
   ) : super(const CatalogState.initial()) {
     on<_Started>((event, emit) async => await _init(emit));
     on<_CategorySelected>((event, emit) async => await _loadCategory(event.category, emit));
@@ -47,7 +51,29 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     }
   }
 
-  Future<void> _loadCategory(Category category, Emitter<CatalogState> emit) async {}
+  Future<void> _loadCategory(Category category, Emitter<CatalogState> emit) async {
+    _updateState(
+      _getState().copyWith(
+        selectedCategory: category,
+        isProductsLoading: true,
+        products: [],
+      ),
+      emit,
+    );
+    try {
+      final result = await _productsInteractor.getProductsByCategory(category.id);
+      _updateState(
+        _getState().copyWith(
+          products: result,
+          isProductsLoading: false,
+        ),
+        emit,
+      );
+    } catch (e, stack) {
+      await _logService.recordError(e, stack);
+      _updateState(_getState().copyWith(isError: true), emit);
+    }
+  }
 
   void _updateState(CatalogViewState viewState, Emitter<CatalogState> emit) {
     emit(CatalogState.ready(viewState));

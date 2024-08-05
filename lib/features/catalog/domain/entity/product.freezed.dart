@@ -17,10 +17,13 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Product {
   int get id => throw _privateConstructorUsedError;
+  int get categoryId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
+  double? get priceWithDiscount => throw _privateConstructorUsedError;
   String get priceDescription => throw _privateConstructorUsedError;
+  double get multiplicity => throw _privateConstructorUsedError;
   String get cover => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   Map<String, String> get characteristics => throw _privateConstructorUsedError;
@@ -36,10 +39,13 @@ abstract class $ProductCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
+      int categoryId,
       String name,
       bool isFavorite,
       double price,
+      double? priceWithDiscount,
       String priceDescription,
+      double multiplicity,
       String cover,
       String description,
       Map<String, String> characteristics});
@@ -59,10 +65,13 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
   @override
   $Res call({
     Object? id = null,
+    Object? categoryId = null,
     Object? name = null,
     Object? isFavorite = null,
     Object? price = null,
+    Object? priceWithDiscount = freezed,
     Object? priceDescription = null,
+    Object? multiplicity = null,
     Object? cover = null,
     Object? description = null,
     Object? characteristics = null,
@@ -71,6 +80,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
               as int,
       name: null == name
           ? _value.name
@@ -84,10 +97,18 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      priceWithDiscount: freezed == priceWithDiscount
+          ? _value.priceWithDiscount
+          : priceWithDiscount // ignore: cast_nullable_to_non_nullable
+              as double?,
       priceDescription: null == priceDescription
           ? _value.priceDescription
           : priceDescription // ignore: cast_nullable_to_non_nullable
               as String,
+      multiplicity: null == multiplicity
+          ? _value.multiplicity
+          : multiplicity // ignore: cast_nullable_to_non_nullable
+              as double,
       cover: null == cover
           ? _value.cover
           : cover // ignore: cast_nullable_to_non_nullable
@@ -113,10 +134,13 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
+      int categoryId,
       String name,
       bool isFavorite,
       double price,
+      double? priceWithDiscount,
       String priceDescription,
+      double multiplicity,
       String cover,
       String description,
       Map<String, String> characteristics});
@@ -134,10 +158,13 @@ class __$$ProductImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? categoryId = null,
     Object? name = null,
     Object? isFavorite = null,
     Object? price = null,
+    Object? priceWithDiscount = freezed,
     Object? priceDescription = null,
+    Object? multiplicity = null,
     Object? cover = null,
     Object? description = null,
     Object? characteristics = null,
@@ -146,6 +173,10 @@ class __$$ProductImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
               as int,
       name: null == name
           ? _value.name
@@ -159,10 +190,18 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      priceWithDiscount: freezed == priceWithDiscount
+          ? _value.priceWithDiscount
+          : priceWithDiscount // ignore: cast_nullable_to_non_nullable
+              as double?,
       priceDescription: null == priceDescription
           ? _value.priceDescription
           : priceDescription // ignore: cast_nullable_to_non_nullable
               as String,
+      multiplicity: null == multiplicity
+          ? _value.multiplicity
+          : multiplicity // ignore: cast_nullable_to_non_nullable
+              as double,
       cover: null == cover
           ? _value.cover
           : cover // ignore: cast_nullable_to_non_nullable
@@ -184,10 +223,13 @@ class __$$ProductImplCopyWithImpl<$Res>
 class _$ProductImpl implements _Product {
   const _$ProductImpl(
       {required this.id,
+      required this.categoryId,
       required this.name,
       required this.isFavorite,
       required this.price,
+      this.priceWithDiscount = null,
       required this.priceDescription,
+      required this.multiplicity,
       required this.cover,
       required this.description,
       final Map<String, String> characteristics = const {}})
@@ -196,13 +238,20 @@ class _$ProductImpl implements _Product {
   @override
   final int id;
   @override
+  final int categoryId;
+  @override
   final String name;
   @override
   final bool isFavorite;
   @override
   final double price;
   @override
+  @JsonKey()
+  final double? priceWithDiscount;
+  @override
   final String priceDescription;
+  @override
+  final double multiplicity;
   @override
   final String cover;
   @override
@@ -218,7 +267,7 @@ class _$ProductImpl implements _Product {
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, isFavorite: $isFavorite, price: $price, priceDescription: $priceDescription, cover: $cover, description: $description, characteristics: $characteristics)';
+    return 'Product(id: $id, categoryId: $categoryId, name: $name, isFavorite: $isFavorite, price: $price, priceWithDiscount: $priceWithDiscount, priceDescription: $priceDescription, multiplicity: $multiplicity, cover: $cover, description: $description, characteristics: $characteristics)';
   }
 
   @override
@@ -227,12 +276,18 @@ class _$ProductImpl implements _Product {
         (other.runtimeType == runtimeType &&
             other is _$ProductImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.isFavorite, isFavorite) ||
                 other.isFavorite == isFavorite) &&
             (identical(other.price, price) || other.price == price) &&
+            (identical(other.priceWithDiscount, priceWithDiscount) ||
+                other.priceWithDiscount == priceWithDiscount) &&
             (identical(other.priceDescription, priceDescription) ||
                 other.priceDescription == priceDescription) &&
+            (identical(other.multiplicity, multiplicity) ||
+                other.multiplicity == multiplicity) &&
             (identical(other.cover, cover) || other.cover == cover) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -244,10 +299,13 @@ class _$ProductImpl implements _Product {
   int get hashCode => Object.hash(
       runtimeType,
       id,
+      categoryId,
       name,
       isFavorite,
       price,
+      priceWithDiscount,
       priceDescription,
+      multiplicity,
       cover,
       description,
       const DeepCollectionEquality().hash(_characteristics));
@@ -262,10 +320,13 @@ class _$ProductImpl implements _Product {
 abstract class _Product implements Product {
   const factory _Product(
       {required final int id,
+      required final int categoryId,
       required final String name,
       required final bool isFavorite,
       required final double price,
+      final double? priceWithDiscount,
       required final String priceDescription,
+      required final double multiplicity,
       required final String cover,
       required final String description,
       final Map<String, String> characteristics}) = _$ProductImpl;
@@ -273,13 +334,19 @@ abstract class _Product implements Product {
   @override
   int get id;
   @override
+  int get categoryId;
+  @override
   String get name;
   @override
   bool get isFavorite;
   @override
   double get price;
   @override
+  double? get priceWithDiscount;
+  @override
   String get priceDescription;
+  @override
+  double get multiplicity;
   @override
   String get cover;
   @override

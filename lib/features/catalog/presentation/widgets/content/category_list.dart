@@ -4,11 +4,13 @@ class _CategoryList extends StatelessWidget {
   final bool isLoading;
   final List<Category> items;
   final Category? selected;
+  final ValueChanged<Category> onTap;
 
   const _CategoryList({
     required this.isLoading,
     required this.items,
     this.selected,
+    required this.onTap,
   });
 
   @override
@@ -21,7 +23,7 @@ class _CategoryList extends StatelessWidget {
             itemBuilder: (_, index) => _CategoryItem(
               item: items[index],
               isSelected: items[index] == selected,
-              onTap: (_) => {},
+              onTap: onTap,
             ),
           );
   }

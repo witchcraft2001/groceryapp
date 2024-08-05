@@ -7,10 +7,13 @@ part 'product.freezed.dart';
 class Product with _$Product {
   const factory Product({
     required int id,
+    required int categoryId,
     required String name,
     required bool isFavorite,
     required double price,
+    @Default(null) double? priceWithDiscount,
     required String priceDescription,
+    required double multiplicity,
     required String cover,
     required String description,
     @Default({}) Map<String, String> characteristics,

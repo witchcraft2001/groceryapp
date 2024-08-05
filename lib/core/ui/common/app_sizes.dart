@@ -74,6 +74,7 @@ class AppSizes {
   static const ph64 = EdgeInsets.symmetric(horizontal: sp64);
 
   static const ph8v4 = EdgeInsets.symmetric(horizontal: sp8, vertical: sp4);
+  static const ph8v16 = EdgeInsets.symmetric(horizontal: sp8, vertical: sp16);
 
   static const ph12t12 = EdgeInsets.fromLTRB(sp12, sp16, sp12, 0.0);
   static const ph12t16b24 = EdgeInsets.fromLTRB(sp12, sp16, sp12, sp24);
@@ -145,8 +146,12 @@ class AppSizes {
   static const double shimmerCategoryTitle = 64.0;
   static const double categoryListWidth = 80.0;
 
+  static const double cartButtonSize = 32.0;
+  static const double cartButtonIconSize = 20.0;
+  static const double productItemTitleHeight = 32.0;
   static const double productItemHeight = 184.0;
   static const double productItemWidth = 120.0;
+  static const double productItemImageHeight = 88.0;
 
   static EdgeInsets safeAreaPadding(
     BuildContext context, {

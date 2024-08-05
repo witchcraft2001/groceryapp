@@ -20,6 +20,7 @@ mixin _$CatalogViewState {
   bool get isProductsLoading => throw _privateConstructorUsedError;
   List<Category> get categories => throw _privateConstructorUsedError;
   List<Product> get products => throw _privateConstructorUsedError;
+  Map<int, int> get cartQuantities => throw _privateConstructorUsedError;
   Category? get selectedCategory => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
@@ -39,6 +40,7 @@ abstract class $CatalogViewStateCopyWith<$Res> {
       bool isProductsLoading,
       List<Category> categories,
       List<Product> products,
+      Map<int, int> cartQuantities,
       Category? selectedCategory,
       bool isError});
 
@@ -62,6 +64,7 @@ class _$CatalogViewStateCopyWithImpl<$Res, $Val extends CatalogViewState>
     Object? isProductsLoading = null,
     Object? categories = null,
     Object? products = null,
+    Object? cartQuantities = null,
     Object? selectedCategory = freezed,
     Object? isError = null,
   }) {
@@ -82,6 +85,10 @@ class _$CatalogViewStateCopyWithImpl<$Res, $Val extends CatalogViewState>
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      cartQuantities: null == cartQuantities
+          ? _value.cartQuantities
+          : cartQuantities // ignore: cast_nullable_to_non_nullable
+              as Map<int, int>,
       selectedCategory: freezed == selectedCategory
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
@@ -119,6 +126,7 @@ abstract class _$$CatalogViewStateImplCopyWith<$Res>
       bool isProductsLoading,
       List<Category> categories,
       List<Product> products,
+      Map<int, int> cartQuantities,
       Category? selectedCategory,
       bool isError});
 
@@ -141,6 +149,7 @@ class __$$CatalogViewStateImplCopyWithImpl<$Res>
     Object? isProductsLoading = null,
     Object? categories = null,
     Object? products = null,
+    Object? cartQuantities = null,
     Object? selectedCategory = freezed,
     Object? isError = null,
   }) {
@@ -161,6 +170,10 @@ class __$$CatalogViewStateImplCopyWithImpl<$Res>
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      cartQuantities: null == cartQuantities
+          ? _value._cartQuantities
+          : cartQuantities // ignore: cast_nullable_to_non_nullable
+              as Map<int, int>,
       selectedCategory: freezed == selectedCategory
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
@@ -181,10 +194,12 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
       this.isProductsLoading = false,
       final List<Category> categories = const [],
       final List<Product> products = const [],
+      final Map<int, int> cartQuantities = const {},
       this.selectedCategory = null,
       this.isError = false})
       : _categories = categories,
-        _products = products;
+        _products = products,
+        _cartQuantities = cartQuantities;
 
   @override
   @JsonKey()
@@ -210,6 +225,15 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
     return EqualUnmodifiableListView(_products);
   }
 
+  final Map<int, int> _cartQuantities;
+  @override
+  @JsonKey()
+  Map<int, int> get cartQuantities {
+    if (_cartQuantities is EqualUnmodifiableMapView) return _cartQuantities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_cartQuantities);
+  }
+
   @override
   @JsonKey()
   final Category? selectedCategory;
@@ -219,7 +243,7 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
 
   @override
   String toString() {
-    return 'CatalogViewState(isCategoriesLoading: $isCategoriesLoading, isProductsLoading: $isProductsLoading, categories: $categories, products: $products, selectedCategory: $selectedCategory, isError: $isError)';
+    return 'CatalogViewState(isCategoriesLoading: $isCategoriesLoading, isProductsLoading: $isProductsLoading, categories: $categories, products: $products, cartQuantities: $cartQuantities, selectedCategory: $selectedCategory, isError: $isError)';
   }
 
   @override
@@ -234,6 +258,8 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
             const DeepCollectionEquality()
                 .equals(other._categories, _categories) &&
             const DeepCollectionEquality().equals(other._products, _products) &&
+            const DeepCollectionEquality()
+                .equals(other._cartQuantities, _cartQuantities) &&
             (identical(other.selectedCategory, selectedCategory) ||
                 other.selectedCategory == selectedCategory) &&
             (identical(other.isError, isError) || other.isError == isError));
@@ -246,6 +272,7 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
       isProductsLoading,
       const DeepCollectionEquality().hash(_categories),
       const DeepCollectionEquality().hash(_products),
+      const DeepCollectionEquality().hash(_cartQuantities),
       selectedCategory,
       isError);
 
@@ -263,6 +290,7 @@ abstract class _CatalogViewState implements CatalogViewState {
       final bool isProductsLoading,
       final List<Category> categories,
       final List<Product> products,
+      final Map<int, int> cartQuantities,
       final Category? selectedCategory,
       final bool isError}) = _$CatalogViewStateImpl;
 
@@ -274,6 +302,8 @@ abstract class _CatalogViewState implements CatalogViewState {
   List<Category> get categories;
   @override
   List<Product> get products;
+  @override
+  Map<int, int> get cartQuantities;
   @override
   Category? get selectedCategory;
   @override

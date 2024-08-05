@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:grocery_app/core/extensions/context_extensions.dart';
 
 // Project imports:
+import 'package:grocery_app/core/extensions/context_extensions.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_decorations.dart';
 import 'package:grocery_app/core/ui/common/app_shimmer.dart';
@@ -16,6 +16,8 @@ import 'package:grocery_app/features/catalog/domain/entity/category.dart';
 import 'package:grocery_app/features/catalog/domain/entity/product.dart';
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_bloc.dart';
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_view_state.dart';
+import 'package:grocery_app/features/catalog/presentation/mixin/product_item_cross_axis_count_calculator.dart';
+import 'package:grocery_app/features/catalog/presentation/widgets/content/product_item.dart';
 
 import '../../../../core/ui/common/grocery_app_bar.dart';
 import '../../../../injection.dart';
@@ -56,7 +58,6 @@ class _CatalogScreenInternal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // mainAxisSize: MainAxisSize.max,
       children: [
         const GroceryAppBar(
           elevation: 0.0,
@@ -73,9 +74,17 @@ class _CatalogScreenInternal extends StatelessWidget {
                   isLoading: state.isCategoriesLoading,
                   items: state.categories,
                   selected: state.selectedCategory,
+                  onTap: (category) =>
+                      context.bloc<CatalogBloc>().add(CatalogEvent.categorySelected(category)),
                 ),
               ),
-              Flexible(child: _ProductList(isLoading: state.isProductsLoading, items: state.products)),
+              Flexible(
+                child: _ProductList(
+                  isLoading: state.isProductsLoading,
+                  items: state.products,
+                  quantities: state.cartQuantities,
+                ),
+              ),
             ],
           ),
         )

@@ -14,6 +14,7 @@ class CatalogViewState with _$CatalogViewState {
     @Default(false) bool isProductsLoading,
     @Default([]) List<Category> categories,
     @Default([]) List<Product> products,
+    @Default({}) Map<int, int> cartQuantities,
     @Default(null) Category? selectedCategory,
     @Default(false) bool isError,
   }) = _CatalogViewState;

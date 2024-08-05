@@ -7,6 +7,7 @@ class ProductData {
   final bool isFavorite;
   final double price;
   final String priceDescription;
+  final double multiplicity;
   final String cover;
   final String description;
   final Map<String, String> characteristics;
@@ -17,6 +18,7 @@ class ProductData {
     required this.isFavorite,
     required this.price,
     required this.priceDescription,
+    required this.multiplicity,
     required this.cover,
     required this.description,
     required this.characteristics,
