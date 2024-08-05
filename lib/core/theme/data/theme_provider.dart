@@ -8,7 +8,7 @@ import 'package:grocery_app/core/theme/data/app_colors.dart';
 import 'package:grocery_app/core/theme/data/app_fonts.dart';
 import 'package:grocery_app/core/theme/data/app_text_theme.dart';
 import 'package:grocery_app/core/ui/common/app_decorations.dart';
-import 'package:grocery_app/core/ui/common/app_spaces.dart';
+import 'package:grocery_app/core/ui/common/app_sizes.dart';
 
 class ThemeProvider extends InheritedWidget {
   final bool isDarkTheme;
@@ -68,7 +68,7 @@ class ThemeProvider extends InheritedWidget {
       ),
       dialogTheme: DialogTheme(
         shape: RoundedRectangleBorder(
-          borderRadius: TlDecoration.brBase,
+          borderRadius: AppDecoration.brBase,
         ),
         backgroundColor: colors.bgPopups,
         titleTextStyle: text.w700s16cMain,
@@ -104,21 +104,21 @@ class ThemeProvider extends InheritedWidget {
         filled: true,
         border: OutlineInputBorder(
           borderSide: BorderSide(color: colors.brAndIconsShapes, width: 1.5),
-          borderRadius: TlDecoration.brBase,
+          borderRadius: AppDecoration.brBase,
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: colors.brAndIconsShapes, width: 1.5),
-          borderRadius: TlDecoration.brBase,
+          borderRadius: AppDecoration.brBase,
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: colors.brAndIconsShapes, width: 1.5),
-          borderRadius: TlDecoration.brBase,
+          borderRadius: AppDecoration.brBase,
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(color: colors.danger),
-          borderRadius: TlDecoration.brBase,
+          borderRadius: AppDecoration.brBase,
         ),
-        contentPadding: TlSpaces.p16,
+        contentPadding: AppSizes.p16,
         hintStyle: text.w400s16cOptional,
         labelStyle: text.w600s12cSignatures.copyWith(height: 0.25),
         errorStyle: text.w600s12cDanger.copyWith(height: 0.25),

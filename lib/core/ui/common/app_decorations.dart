@@ -1,8 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-class TlDecoration {
-  TlDecoration._();
+class AppDecoration {
+  AppDecoration._();
 
   // Values
   static const brBaseValue = 12.0;
@@ -42,7 +42,7 @@ class TlDecoration {
 
   static BorderRadius brDialogIcon = BorderRadius.circular(44.0);
 
-  static BorderRadius brAvatarLetter = BorderRadius.circular(28.0);
+  static BorderRadius brCategoryIcon = BorderRadius.circular(8.0);
 
   static BorderRadius brProfileCard = BorderRadius.circular(20.0);
 

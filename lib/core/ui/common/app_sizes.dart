@@ -1,8 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-class TlSpaces {
-  TlSpaces._();
+class AppSizes {
+  AppSizes._();
 
   static const double sp2 = 2.0;
   static const double sp4 = 4.0;
@@ -70,6 +70,7 @@ class TlSpaces {
   static const ph20 = EdgeInsets.symmetric(horizontal: sp20);
   static const ph24 = EdgeInsets.symmetric(horizontal: sp24);
   static const ph32 = EdgeInsets.symmetric(horizontal: sp32);
+  static const ph48 = EdgeInsets.symmetric(horizontal: sp48);
   static const ph64 = EdgeInsets.symmetric(horizontal: sp64);
 
   static const ph8v4 = EdgeInsets.symmetric(horizontal: sp8, vertical: sp4);
@@ -133,6 +134,19 @@ class TlSpaces {
   static const p32 = EdgeInsets.all(sp32);
   static const p48 = EdgeInsets.all(sp48);
   static const p64 = EdgeInsets.all(sp64);
+
+  static const double categoryIcon = sp40;
+
+  // - texts
+  static const double shimmerTextS = sp12;
+  static const double shimmerTextBase = sp16;
+  static const double shimmerTextM = sp24;
+
+  static const double shimmerCategoryTitle = 64.0;
+  static const double categoryListWidth = 80.0;
+
+  static const double productItemHeight = 184.0;
+  static const double productItemWidth = 120.0;
 
   static EdgeInsets safeAreaPadding(
     BuildContext context, {

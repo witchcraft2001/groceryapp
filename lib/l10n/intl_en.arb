@@ -1,0 +1,7 @@
+{
+  "main": "Main",
+  "cart": "Cart",
+  "catalog": "Catalog",
+  "profile": "Profile",
+  "favorites": "Favorites"
+}
