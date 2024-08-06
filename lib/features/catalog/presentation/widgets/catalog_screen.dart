@@ -18,7 +18,6 @@ import 'package:grocery_app/features/catalog/presentation/bloc/catalog_bloc.dart
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_view_state.dart';
 import 'package:grocery_app/features/catalog/presentation/mixin/product_item_cross_axis_count_calculator.dart';
 import 'package:grocery_app/features/catalog/presentation/widgets/content/product_item.dart';
-
 import '../../../../core/ui/common/grocery_app_bar.dart';
 import '../../../../injection.dart';
 
@@ -83,6 +82,8 @@ class _CatalogScreenInternal extends StatelessWidget {
                   isLoading: state.isProductsLoading,
                   items: state.products,
                   quantities: state.cartQuantities,
+                  onIncreaseTap: (product) => context.bloc<CatalogBloc>().add(CatalogEvent.onIncreaseProduct(product)),
+                  onDecreaseTap: (product) => context.bloc<CatalogBloc>().add(CatalogEvent.onDecreaseProduct(product)),
                 ),
               ),
             ],

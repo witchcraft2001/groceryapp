@@ -13,8 +13,11 @@ import 'package:grocery_app/core/data/data_source/settings_data_source.dart'
     as _i501;
 import 'package:grocery_app/core/data/repository/settings_repository.dart'
     as _i806;
+import 'package:grocery_app/core/data/service/cart_service.dart' as _i179;
 import 'package:grocery_app/core/data/service/log_service.dart' as _i524;
 import 'package:grocery_app/core/di/module/app_module.dart' as _i312;
+import 'package:grocery_app/core/domain/interactor/cart_interactor.dart'
+    as _i585;
 import 'package:grocery_app/core/domain/use_case/get_dark_mode_settings_use_case.dart'
     as _i407;
 import 'package:grocery_app/core/domain/use_case/get_system_theme_settings_use_case.dart'
@@ -58,6 +61,7 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i202.CategoriesRepository());
     gh.lazySingleton<_i165.ProductsRepository>(
         () => _i165.ProductsRepository());
+    gh.lazySingleton<_i179.CartService>(() => _i179.CartService());
     gh.factory<_i49.CategoriesInteractor>(
         () => _i49.CategoriesInteractor(gh<_i202.CategoriesRepository>()));
     gh.lazySingleton<_i501.SettingsDataSource>(
@@ -66,10 +70,13 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i892.ProductsInteractor(gh<_i165.ProductsRepository>()));
     gh.lazySingleton<_i806.SettingsRepository>(
         () => _i806.SettingsRepository(gh<_i501.SettingsDataSource>()));
+    gh.factory<_i585.CartInteractor>(
+        () => _i585.CartInteractor(gh<_i179.CartService>()));
     gh.factory<_i666.CatalogBloc>(() => _i666.CatalogBloc(
           gh<_i49.CategoriesInteractor>(),
           gh<_i524.LogService>(),
           gh<_i892.ProductsInteractor>(),
+          gh<_i585.CartInteractor>(),
         ));
     gh.factory<_i407.GetDarkModeSettingsUseCase>(
         () => _i407.GetDarkModeSettingsUseCase(gh<_i806.SettingsRepository>()));

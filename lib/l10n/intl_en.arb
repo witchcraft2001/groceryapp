@@ -3,5 +3,6 @@
   "cart": "Cart",
   "catalog": "Catalog",
   "profile": "Profile",
-  "favorites": "Favorites"
+  "favorites": "Favorites",
+  "addToCart": "Add to cart"
 }

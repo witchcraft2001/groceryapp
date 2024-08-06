@@ -4,8 +4,16 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
   final bool isLoading;
   final List<Product> items;
   final Map<int, int> quantities;
+  final ValueChanged<Product> onIncreaseTap;
+  final ValueChanged<Product> onDecreaseTap;
 
-  const _ProductList({required this.isLoading, required this.items, required this.quantities});
+  const _ProductList({
+    required this.isLoading,
+    required this.items,
+    required this.quantities,
+    required this.onIncreaseTap,
+    required this.onDecreaseTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +23,7 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
             padding: AppSizes.ph8,
             itemCount: items.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: getItemCountCrossAxis(context),
+              crossAxisCount: getItemCountCrossAxis(context),
               childAspectRatio: getAspectRatio(context),
             ),
             itemBuilder: (_, index) {
@@ -24,6 +32,8 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
                 item: item,
                 quantity: quantities[item.id] ?? 0,
                 padding: AppSizes.p4,
+                onIncreaseTap: onIncreaseTap,
+                onDecreaseTap: onDecreaseTap,
               );
             },
           );

@@ -13,6 +13,7 @@ class Product with _$Product {
     required double price,
     @Default(null) double? priceWithDiscount,
     required String priceDescription,
+    required String quantityUnit,
     required double multiplicity,
     required String cover,
     required String description,

@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:grocery_app/core/extensions/context_extensions.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
 

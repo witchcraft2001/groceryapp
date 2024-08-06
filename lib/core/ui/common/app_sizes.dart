@@ -149,7 +149,7 @@ class AppSizes {
   static const double cartButtonSize = 32.0;
   static const double cartButtonIconSize = 20.0;
   static const double productItemTitleHeight = 32.0;
-  static const double productItemHeight = 184.0;
+  static const double productItemHeight = 200.0;
   static const double productItemWidth = 120.0;
   static const double productItemImageHeight = 88.0;
 

@@ -1,5 +1,6 @@
 class AppAssets {
   AppAssets._();
+  static String iconAdd = 'assets/images/ic_add_line.svg';
   static String iconBerries = 'assets/images/ic_berries.svg';
   static String iconBerriesActive = 'assets/images/ic_berries_active.svg';
   static String iconBeverages = 'assets/images/ic_beverages.svg';
@@ -27,6 +28,7 @@ class AppAssets {
   static String iconMeatActive = 'assets/images/ic_meat_active.svg';
   static String iconMilk = 'assets/images/ic_milk.svg';
   static String iconMilkActive = 'assets/images/ic_milk_active.svg';
+  static String iconMinus = 'assets/images/ic_subtract_line.svg';
   static String iconPasta = 'assets/images/ic_pasta.svg';
   static String iconPastaActive = 'assets/images/ic_pasta_active.svg';
   static String iconProfile = 'assets/images/ic_profile.svg';

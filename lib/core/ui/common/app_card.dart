@@ -1,5 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 
 class AppCard extends StatelessWidget {

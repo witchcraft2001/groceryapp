@@ -23,6 +23,7 @@ mixin _$Product {
   double get price => throw _privateConstructorUsedError;
   double? get priceWithDiscount => throw _privateConstructorUsedError;
   String get priceDescription => throw _privateConstructorUsedError;
+  String get quantityUnit => throw _privateConstructorUsedError;
   double get multiplicity => throw _privateConstructorUsedError;
   String get cover => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $ProductCopyWith<$Res> {
       double price,
       double? priceWithDiscount,
       String priceDescription,
+      String quantityUnit,
       double multiplicity,
       String cover,
       String description,
@@ -71,6 +73,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? price = null,
     Object? priceWithDiscount = freezed,
     Object? priceDescription = null,
+    Object? quantityUnit = null,
     Object? multiplicity = null,
     Object? cover = null,
     Object? description = null,
@@ -104,6 +107,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       priceDescription: null == priceDescription
           ? _value.priceDescription
           : priceDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      quantityUnit: null == quantityUnit
+          ? _value.quantityUnit
+          : quantityUnit // ignore: cast_nullable_to_non_nullable
               as String,
       multiplicity: null == multiplicity
           ? _value.multiplicity
@@ -140,6 +147,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       double price,
       double? priceWithDiscount,
       String priceDescription,
+      String quantityUnit,
       double multiplicity,
       String cover,
       String description,
@@ -164,6 +172,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? price = null,
     Object? priceWithDiscount = freezed,
     Object? priceDescription = null,
+    Object? quantityUnit = null,
     Object? multiplicity = null,
     Object? cover = null,
     Object? description = null,
@@ -198,6 +207,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.priceDescription
           : priceDescription // ignore: cast_nullable_to_non_nullable
               as String,
+      quantityUnit: null == quantityUnit
+          ? _value.quantityUnit
+          : quantityUnit // ignore: cast_nullable_to_non_nullable
+              as String,
       multiplicity: null == multiplicity
           ? _value.multiplicity
           : multiplicity // ignore: cast_nullable_to_non_nullable
@@ -229,6 +242,7 @@ class _$ProductImpl implements _Product {
       required this.price,
       this.priceWithDiscount = null,
       required this.priceDescription,
+      required this.quantityUnit,
       required this.multiplicity,
       required this.cover,
       required this.description,
@@ -251,6 +265,8 @@ class _$ProductImpl implements _Product {
   @override
   final String priceDescription;
   @override
+  final String quantityUnit;
+  @override
   final double multiplicity;
   @override
   final String cover;
@@ -267,7 +283,7 @@ class _$ProductImpl implements _Product {
 
   @override
   String toString() {
-    return 'Product(id: $id, categoryId: $categoryId, name: $name, isFavorite: $isFavorite, price: $price, priceWithDiscount: $priceWithDiscount, priceDescription: $priceDescription, multiplicity: $multiplicity, cover: $cover, description: $description, characteristics: $characteristics)';
+    return 'Product(id: $id, categoryId: $categoryId, name: $name, isFavorite: $isFavorite, price: $price, priceWithDiscount: $priceWithDiscount, priceDescription: $priceDescription, quantityUnit: $quantityUnit, multiplicity: $multiplicity, cover: $cover, description: $description, characteristics: $characteristics)';
   }
 
   @override
@@ -286,6 +302,8 @@ class _$ProductImpl implements _Product {
                 other.priceWithDiscount == priceWithDiscount) &&
             (identical(other.priceDescription, priceDescription) ||
                 other.priceDescription == priceDescription) &&
+            (identical(other.quantityUnit, quantityUnit) ||
+                other.quantityUnit == quantityUnit) &&
             (identical(other.multiplicity, multiplicity) ||
                 other.multiplicity == multiplicity) &&
             (identical(other.cover, cover) || other.cover == cover) &&
@@ -305,6 +323,7 @@ class _$ProductImpl implements _Product {
       price,
       priceWithDiscount,
       priceDescription,
+      quantityUnit,
       multiplicity,
       cover,
       description,
@@ -326,6 +345,7 @@ abstract class _Product implements Product {
       required final double price,
       final double? priceWithDiscount,
       required final String priceDescription,
+      required final String quantityUnit,
       required final double multiplicity,
       required final String cover,
       required final String description,
@@ -345,6 +365,8 @@ abstract class _Product implements Product {
   double? get priceWithDiscount;
   @override
   String get priceDescription;
+  @override
+  String get quantityUnit;
   @override
   double get multiplicity;
   @override
