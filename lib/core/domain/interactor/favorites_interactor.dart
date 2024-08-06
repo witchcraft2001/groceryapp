@@ -1,9 +1,10 @@
 // Package imports:
-import 'package:grocery_app/core/data/repository/favorites_repository.dart';
+import 'package:injectable/injectable.dart';
+import 'package:rxdart/subjects.dart';
 
 // Project imports:
+import 'package:grocery_app/core/data/repository/favorites_repository.dart';
 import 'package:grocery_app/features/catalog/domain/entity/product.dart';
-import 'package:injectable/injectable.dart';
 
 @injectable
 class FavoritesInteractor {
@@ -12,6 +13,8 @@ class FavoritesInteractor {
   FavoritesInteractor(
     this._repository,
   );
+
+  Subject<int> getFavoritesCountSubject() => _repository.favoritesSubject;
 
   Future<Product> addFavoriteProduct(int productId) => Future.delayed(
         const Duration(milliseconds: 300),
