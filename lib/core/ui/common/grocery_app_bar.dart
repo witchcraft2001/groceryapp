@@ -19,7 +19,7 @@ class GroceryAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const GroceryAppBar({
     super.key,
-    required this.elevation,
+    this.elevation = 0.0,
     this.title,
     this.titleWidget,
     this.actions,

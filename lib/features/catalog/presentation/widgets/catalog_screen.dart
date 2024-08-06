@@ -6,14 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Project imports:
+import 'package:grocery_app/core/domain/entity/category.dart';
+import 'package:grocery_app/core/domain/entity/product.dart';
 import 'package:grocery_app/core/extensions/context_extensions.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_decorations.dart';
 import 'package:grocery_app/core/ui/common/app_shimmer.dart';
 import 'package:grocery_app/core/ui/common/app_shimmer_content.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
-import 'package:grocery_app/features/catalog/domain/entity/category.dart';
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_bloc.dart';
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_view_state.dart';
 import 'package:grocery_app/features/catalog/presentation/mixin/product_item_cross_axis_count_calculator.dart';

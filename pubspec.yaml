@@ -29,6 +29,7 @@ dependencies:
   shared_preferences: ^2.0.6
   flutter_svg: ^2.0.2
   shimmer: ^3.0.0
+  custom_rating_bar: ^3.0.0
 
 dev_dependencies:
   flutter_test:

@@ -7,9 +7,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
+import 'package:grocery_app/core/domain/entity/product.dart';
 import 'package:grocery_app/core/domain/interactor/cart_interactor.dart';
 import 'package:grocery_app/core/domain/interactor/favorites_interactor.dart';
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
 
 part 'main_bloc.freezed.dart';
 

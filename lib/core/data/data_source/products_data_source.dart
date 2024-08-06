@@ -1,10 +1,9 @@
 // Package imports:
-import 'package:injectable/injectable.dart';
-
 // Project imports:
 import 'package:grocery_app/core/data/model/product_data.dart';
 import 'package:grocery_app/core/exception/data_source_exception.dart';
 import 'package:grocery_app/core/extensions/iterable_extensions.dart';
+import 'package:injectable/injectable.dart';
 
 @lazySingleton
 class ProductsDataSource {
@@ -24,6 +23,9 @@ class ProductsDataSource {
           'Experience the rich and creamy essence of AROY-D Coconut Milk UHT, an essential ingredient that elevates a variety of Asian main dishes and desserts to new heights of deliciousness. Similar to cream but with a unique tropical twist, our coconut milk adds depth, consistency, and a touch of exotic flavor to your culinary creations.',
       characteristics: {},
       quantityUnit: 'piece',
+      categoryName: 'Milk',
+      rate: 4.8,
+      ratesCount: 10,
     ),
     const ProductData(
       id: 2,
@@ -40,6 +42,9 @@ class ProductsDataSource {
           'Experience the rich and creamy essence of tropical coconuts with KARA Coconut Milk Classic UHT 17% Fat. Perfect for a wide array of culinary delights, this premium coconut milk is a must-have in your kitchen.',
       characteristics: {'Volume': '400 ml', 'Fat': '17%'},
       quantityUnit: 'piece',
+      categoryName: 'Milk',
+      rate: 4.5,
+      ratesCount: 5,
     ),
     const ProductData(
       id: 3,
@@ -56,6 +61,9 @@ class ProductsDataSource {
           'Discover the rich and creamy taste of Nestle Condensed Milk, a versatile ingredient that brings a touch of sweetness and luxury to your culinary creations. Made from high-quality cow\'s milk with approximately 60% of the water removed, this condensed milk is perfect for a variety of uses, adding depth and flavor to both beverages and desserts.',
       characteristics: {'Volume': '397 ml', 'Fat': '10%'},
       quantityUnit: 'piece',
+      categoryName: 'Milk',
+      rate: 4.7,
+      ratesCount: 15,
     ),
     const ProductData(
       id: 4,
@@ -71,6 +79,9 @@ class ProductsDataSource {
       description: 'Fresh Indian Brinjal / Eggplant',
       characteristics: {},
       quantityUnit: 'kg',
+      categoryName: 'Vegetables',
+      rate: 4.5,
+      ratesCount: 50,
     ),
     const ProductData(
       id: 5,
@@ -86,6 +97,9 @@ class ProductsDataSource {
       description: 'Fresh Red Chillies',
       characteristics: {},
       quantityUnit: 'kg',
+      categoryName: 'Vegetables',
+      rate: 4.8,
+      ratesCount: 10,
     ),
     const ProductData(
       id: 6,
@@ -102,6 +116,9 @@ class ProductsDataSource {
           'Fresh Mint - 1 Bunch\nDiscover the invigorating flavor and aromatic essence of our Fresh Mint (Pudina leaves) - 1 Bunch. These lush, vibrant green leaves are perfect for adding a burst of freshness to your culinary creations.',
       characteristics: {},
       quantityUnit: 'bunch',
+      categoryName: 'Vegetables',
+      rate: 4.8,
+      ratesCount: 15,
     ),
     const ProductData(
       id: 7,
@@ -118,6 +135,9 @@ class ProductsDataSource {
           'Introducing our Fresh Big Sized Garlic, known as Lahasun or Knoflook in various cultures, a staple ingredient that will elevate your culinary creations. Our garlic is handpicked to ensure you receive the freshest, most flavorful cloves perfect for any dish.',
       characteristics: {},
       quantityUnit: 'kg',
+      categoryName: 'Vegetables',
+      rate: 5.0,
+      ratesCount: 12,
     ),
   ];
 

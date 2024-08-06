@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:grocery_app/core/data/model/category_data.dart';
-import 'package:grocery_app/features/catalog/domain/entity/category.dart';
+import 'package:grocery_app/core/domain/entity/category.dart';
 import '../../../../core/ui/common/app_assets.dart';
 
 @lazySingleton

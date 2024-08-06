@@ -11,6 +11,7 @@ import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_assets.dart';
 import 'package:grocery_app/core/ui/common/app_decorations.dart';
 import 'package:grocery_app/features/catalog/presentation/widgets/catalog_screen.dart';
+import 'package:grocery_app/features/favorites/presentation/widgets/favorites_screen.dart';
 import 'package:grocery_app/features/main/bloc/main_bloc.dart';
 import 'package:grocery_app/injection.dart';
 import '../../generated/l10n.dart';
@@ -99,7 +100,7 @@ class MainScreen extends StatelessWidget {
                 Placeholder(),
                 CatalogScreen(),
                 Placeholder(),
-                Placeholder(),
+                FavoritesScreen(),
                 Placeholder(),
               ],
             ),

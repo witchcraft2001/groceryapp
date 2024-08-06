@@ -1,6 +1,6 @@
 // Project imports:
 import 'package:grocery_app/core/data/model/product_data.dart';
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
+import 'package:grocery_app/core/domain/entity/product.dart';
 
 extension ProductMapper on ProductData {
   Product toDomain() => Product(
@@ -16,5 +16,8 @@ extension ProductMapper on ProductData {
         cover: cover,
         description: description,
         characteristics: characteristics,
+        rate: rate,
+        ratesCount: ratesCount,
+        categoryName: categoryName,
       );
 }

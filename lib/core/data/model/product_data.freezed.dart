@@ -19,10 +19,13 @@ mixin _$ProductData {
   int get id => throw _privateConstructorUsedError;
   int get categoryId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get categoryName => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   double? get priceWithDiscount => throw _privateConstructorUsedError;
   String get priceDescription => throw _privateConstructorUsedError;
+  double get rate => throw _privateConstructorUsedError;
+  int get ratesCount => throw _privateConstructorUsedError;
   String get quantityUnit => throw _privateConstructorUsedError;
   double get multiplicity => throw _privateConstructorUsedError;
   String get cover => throw _privateConstructorUsedError;
@@ -44,10 +47,13 @@ abstract class $ProductDataCopyWith<$Res> {
       {int id,
       int categoryId,
       String name,
+      String categoryName,
       bool isFavorite,
       double price,
       double? priceWithDiscount,
       String priceDescription,
+      double rate,
+      int ratesCount,
       String quantityUnit,
       double multiplicity,
       String cover,
@@ -71,10 +77,13 @@ class _$ProductDataCopyWithImpl<$Res, $Val extends ProductData>
     Object? id = null,
     Object? categoryId = null,
     Object? name = null,
+    Object? categoryName = null,
     Object? isFavorite = null,
     Object? price = null,
     Object? priceWithDiscount = freezed,
     Object? priceDescription = null,
+    Object? rate = null,
+    Object? ratesCount = null,
     Object? quantityUnit = null,
     Object? multiplicity = null,
     Object? cover = null,
@@ -94,6 +103,10 @@ class _$ProductDataCopyWithImpl<$Res, $Val extends ProductData>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryName: null == categoryName
+          ? _value.categoryName
+          : categoryName // ignore: cast_nullable_to_non_nullable
+              as String,
       isFavorite: null == isFavorite
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
@@ -110,6 +123,14 @@ class _$ProductDataCopyWithImpl<$Res, $Val extends ProductData>
           ? _value.priceDescription
           : priceDescription // ignore: cast_nullable_to_non_nullable
               as String,
+      rate: null == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as double,
+      ratesCount: null == ratesCount
+          ? _value.ratesCount
+          : ratesCount // ignore: cast_nullable_to_non_nullable
+              as int,
       quantityUnit: null == quantityUnit
           ? _value.quantityUnit
           : quantityUnit // ignore: cast_nullable_to_non_nullable
@@ -146,10 +167,13 @@ abstract class _$$ProductDataImplCopyWith<$Res>
       {int id,
       int categoryId,
       String name,
+      String categoryName,
       bool isFavorite,
       double price,
       double? priceWithDiscount,
       String priceDescription,
+      double rate,
+      int ratesCount,
       String quantityUnit,
       double multiplicity,
       String cover,
@@ -171,10 +195,13 @@ class __$$ProductDataImplCopyWithImpl<$Res>
     Object? id = null,
     Object? categoryId = null,
     Object? name = null,
+    Object? categoryName = null,
     Object? isFavorite = null,
     Object? price = null,
     Object? priceWithDiscount = freezed,
     Object? priceDescription = null,
+    Object? rate = null,
+    Object? ratesCount = null,
     Object? quantityUnit = null,
     Object? multiplicity = null,
     Object? cover = null,
@@ -194,6 +221,10 @@ class __$$ProductDataImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryName: null == categoryName
+          ? _value.categoryName
+          : categoryName // ignore: cast_nullable_to_non_nullable
+              as String,
       isFavorite: null == isFavorite
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
@@ -210,6 +241,14 @@ class __$$ProductDataImplCopyWithImpl<$Res>
           ? _value.priceDescription
           : priceDescription // ignore: cast_nullable_to_non_nullable
               as String,
+      rate: null == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as double,
+      ratesCount: null == ratesCount
+          ? _value.ratesCount
+          : ratesCount // ignore: cast_nullable_to_non_nullable
+              as int,
       quantityUnit: null == quantityUnit
           ? _value.quantityUnit
           : quantityUnit // ignore: cast_nullable_to_non_nullable
@@ -241,10 +280,13 @@ class _$ProductDataImpl implements _ProductData {
       {required this.id,
       required this.categoryId,
       required this.name,
+      required this.categoryName,
       required this.isFavorite,
       required this.price,
       this.priceWithDiscount = null,
       required this.priceDescription,
+      required this.rate,
+      required this.ratesCount,
       required this.quantityUnit,
       required this.multiplicity,
       required this.cover,
@@ -259,6 +301,8 @@ class _$ProductDataImpl implements _ProductData {
   @override
   final String name;
   @override
+  final String categoryName;
+  @override
   final bool isFavorite;
   @override
   final double price;
@@ -267,6 +311,10 @@ class _$ProductDataImpl implements _ProductData {
   final double? priceWithDiscount;
   @override
   final String priceDescription;
+  @override
+  final double rate;
+  @override
+  final int ratesCount;
   @override
   final String quantityUnit;
   @override
@@ -286,7 +334,7 @@ class _$ProductDataImpl implements _ProductData {
 
   @override
   String toString() {
-    return 'ProductData(id: $id, categoryId: $categoryId, name: $name, isFavorite: $isFavorite, price: $price, priceWithDiscount: $priceWithDiscount, priceDescription: $priceDescription, quantityUnit: $quantityUnit, multiplicity: $multiplicity, cover: $cover, description: $description, characteristics: $characteristics)';
+    return 'ProductData(id: $id, categoryId: $categoryId, name: $name, categoryName: $categoryName, isFavorite: $isFavorite, price: $price, priceWithDiscount: $priceWithDiscount, priceDescription: $priceDescription, rate: $rate, ratesCount: $ratesCount, quantityUnit: $quantityUnit, multiplicity: $multiplicity, cover: $cover, description: $description, characteristics: $characteristics)';
   }
 
   @override
@@ -298,6 +346,8 @@ class _$ProductDataImpl implements _ProductData {
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.categoryName, categoryName) ||
+                other.categoryName == categoryName) &&
             (identical(other.isFavorite, isFavorite) ||
                 other.isFavorite == isFavorite) &&
             (identical(other.price, price) || other.price == price) &&
@@ -305,6 +355,9 @@ class _$ProductDataImpl implements _ProductData {
                 other.priceWithDiscount == priceWithDiscount) &&
             (identical(other.priceDescription, priceDescription) ||
                 other.priceDescription == priceDescription) &&
+            (identical(other.rate, rate) || other.rate == rate) &&
+            (identical(other.ratesCount, ratesCount) ||
+                other.ratesCount == ratesCount) &&
             (identical(other.quantityUnit, quantityUnit) ||
                 other.quantityUnit == quantityUnit) &&
             (identical(other.multiplicity, multiplicity) ||
@@ -322,10 +375,13 @@ class _$ProductDataImpl implements _ProductData {
       id,
       categoryId,
       name,
+      categoryName,
       isFavorite,
       price,
       priceWithDiscount,
       priceDescription,
+      rate,
+      ratesCount,
       quantityUnit,
       multiplicity,
       cover,
@@ -344,10 +400,13 @@ abstract class _ProductData implements ProductData {
       {required final int id,
       required final int categoryId,
       required final String name,
+      required final String categoryName,
       required final bool isFavorite,
       required final double price,
       final double? priceWithDiscount,
       required final String priceDescription,
+      required final double rate,
+      required final int ratesCount,
       required final String quantityUnit,
       required final double multiplicity,
       required final String cover,
@@ -361,6 +420,8 @@ abstract class _ProductData implements ProductData {
   @override
   String get name;
   @override
+  String get categoryName;
+  @override
   bool get isFavorite;
   @override
   double get price;
@@ -368,6 +429,10 @@ abstract class _ProductData implements ProductData {
   double? get priceWithDiscount;
   @override
   String get priceDescription;
+  @override
+  double get rate;
+  @override
+  int get ratesCount;
   @override
   String get quantityUnit;
   @override

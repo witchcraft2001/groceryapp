@@ -2,8 +2,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
-import '../../domain/entity/category.dart';
+import 'package:grocery_app/core/domain/entity/product.dart';
+import '../../../../core/domain/entity/category.dart';
 
 part 'catalog_view_state.freezed.dart';
 

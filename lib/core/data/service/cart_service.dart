@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:rxdart/subjects.dart';
 
 // Project imports:
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
+import 'package:grocery_app/core/domain/entity/product.dart';
 
 @lazySingleton
 class CartService {

@@ -6,8 +6,8 @@ import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:grocery_app/core/data/data_source/categories_data_source.dart';
+import 'package:grocery_app/core/domain/entity/category.dart';
 import 'package:grocery_app/core/domain/mapper/category_mapper.dart';
-import 'package:grocery_app/features/catalog/domain/entity/category.dart';
 
 @injectable
 class CategoriesRepository {

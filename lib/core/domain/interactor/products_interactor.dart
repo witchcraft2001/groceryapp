@@ -4,8 +4,8 @@
 import 'package:injectable/injectable.dart';
 
 // Project imports:
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
-import '../../data/repository/products_repository.dart';
+import 'package:grocery_app/core/domain/entity/product.dart';
+import '../../../features/catalog/data/repository/products_repository.dart';
 
 @injectable
 class ProductsInteractor {

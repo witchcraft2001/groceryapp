@@ -4,7 +4,7 @@ import 'package:rxdart/subjects.dart';
 
 // Project imports:
 import 'package:grocery_app/core/data/repository/favorites_repository.dart';
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
+import 'package:grocery_app/core/domain/entity/product.dart';
 
 @injectable
 class FavoritesInteractor {
@@ -25,4 +25,9 @@ class FavoritesInteractor {
         const Duration(milliseconds: 300),
         () => _repository.removeFavoriteProduct(productId),
       );
+
+  Future<List<Product>> getFavorites() async =>Future.delayed(
+    const Duration(milliseconds: 300),
+        () => _repository.getFavorites(),
+  );
 }

@@ -95,6 +95,7 @@ class AppSizes {
   static const ph12v8 = EdgeInsets.symmetric(horizontal: sp12, vertical: sp8);
   static const ph12v24 = EdgeInsets.symmetric(horizontal: sp12, vertical: sp24);
 
+  static const ph16v4 = EdgeInsets.symmetric(horizontal: sp16, vertical: sp4);
   static const ph16v8 = EdgeInsets.symmetric(horizontal: sp16, vertical: sp8);
   static const ph16v12 = EdgeInsets.symmetric(horizontal: sp16, vertical: sp12);
   static const ph16v24 = EdgeInsets.symmetric(horizontal: sp16, vertical: sp24);
@@ -151,7 +152,11 @@ class AppSizes {
   static const double productItemTitleHeight = 32.0;
   static const double productItemHeight = 200.0;
   static const double productItemWidth = 120.0;
+  static const double productItemPadding = 16.0;
   static const double productItemImageHeight = 88.0;
+  static const double productImageSize = 96.0;
+  static const double favoritesItemTitleHeight = 36.0;
+  static const double favoritesItemHeight = 112.0;
 
   static EdgeInsets safeAreaPadding(
     BuildContext context, {

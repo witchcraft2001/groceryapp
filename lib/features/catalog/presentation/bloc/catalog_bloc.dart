@@ -7,13 +7,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
+import 'package:grocery_app/core/domain/entity/category.dart';
+import 'package:grocery_app/core/domain/entity/product.dart';
 import 'package:grocery_app/core/domain/interactor/cart_interactor.dart';
 import 'package:grocery_app/core/domain/interactor/favorites_interactor.dart';
-import 'package:grocery_app/features/catalog/domain/entity/category.dart';
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
-import 'package:grocery_app/features/catalog/domain/interactor/products_interactor.dart';
+import 'package:grocery_app/core/domain/interactor/products_interactor.dart';
 import '../../../../core/data/service/log_service.dart';
-import '../../domain/interactor/categories_interactor.dart';
+import '../../../../core/domain/interactor/categories_interactor.dart';
 import 'catalog_view_state.dart';
 
 part 'catalog_bloc.freezed.dart';

@@ -10,6 +10,7 @@ class AppAssets {
   static String iconCatalog = 'assets/images/ic_catalog.svg';
   static String iconCatalogSelected = 'assets/images/ic_catalog_active.svg';
   static String iconCheese = 'assets/images/ic_cheese.svg';
+  static String iconClose = 'assets/images/ic_close.svg';
   static String iconCheeseActive = 'assets/images/ic_cheese_active.svg';
   static String iconChevronLeft = 'assets/images/ic_chevron_left.svg';
   static String iconCitrus = 'assets/images/ic_citrus.svg';

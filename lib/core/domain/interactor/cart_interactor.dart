@@ -4,7 +4,7 @@ import 'package:rxdart/subjects.dart';
 
 // Project imports:
 import 'package:grocery_app/core/data/service/cart_service.dart';
-import 'package:grocery_app/features/catalog/domain/entity/product.dart';
+import '../entity/product.dart';
 
 @injectable
 class CartInteractor {
