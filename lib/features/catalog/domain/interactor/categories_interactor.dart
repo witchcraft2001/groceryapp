@@ -11,5 +11,9 @@ class CategoriesInteractor {
 
   CategoriesInteractor(this._repository);
 
-  Future<List<Category>> getItems() => _repository.get();
+  // Delayed retrieving for show visual effects
+  Future<List<Category>> getItems() => Future.delayed(
+        const Duration(milliseconds: 300),
+        () => _repository.get(),
+      );
 }

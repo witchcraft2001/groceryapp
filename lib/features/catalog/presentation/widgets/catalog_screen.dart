@@ -82,8 +82,12 @@ class _CatalogScreenInternal extends StatelessWidget {
                   isLoading: state.isProductsLoading,
                   items: state.products,
                   quantities: state.cartQuantities,
-                  onIncreaseTap: (product) => context.bloc<CatalogBloc>().add(CatalogEvent.onIncreaseProduct(product)),
-                  onDecreaseTap: (product) => context.bloc<CatalogBloc>().add(CatalogEvent.onDecreaseProduct(product)),
+                  onIncreaseTap: (product) =>
+                      context.bloc<CatalogBloc>().add(CatalogEvent.onIncreaseProduct(product)),
+                  onDecreaseTap: (product) =>
+                      context.bloc<CatalogBloc>().add(CatalogEvent.onDecreaseProduct(product)),
+                  onFavoriteTap: (product) =>
+                      context.bloc<CatalogBloc>().add(CatalogEvent.onToggleFavoriteProduct(product)),
                 ),
               ),
             ],

@@ -22,6 +22,7 @@ mixin _$CatalogEvent {
     required TResult Function(Category category) categorySelected,
     required TResult Function(Product product) onIncreaseProduct,
     required TResult Function(Product product) onDecreaseProduct,
+    required TResult Function(Product product) onToggleFavoriteProduct,
     required TResult Function(Map<Product, int> cart) cartUpdated,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,6 +32,7 @@ mixin _$CatalogEvent {
     TResult? Function(Category category)? categorySelected,
     TResult? Function(Product product)? onIncreaseProduct,
     TResult? Function(Product product)? onDecreaseProduct,
+    TResult? Function(Product product)? onToggleFavoriteProduct,
     TResult? Function(Map<Product, int> cart)? cartUpdated,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +42,7 @@ mixin _$CatalogEvent {
     TResult Function(Category category)? categorySelected,
     TResult Function(Product product)? onIncreaseProduct,
     TResult Function(Product product)? onDecreaseProduct,
+    TResult Function(Product product)? onToggleFavoriteProduct,
     TResult Function(Map<Product, int> cart)? cartUpdated,
     required TResult orElse(),
   }) =>
@@ -50,6 +53,8 @@ mixin _$CatalogEvent {
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_IncreaseProduct value) onIncreaseProduct,
     required TResult Function(_DecreaseProduct value) onDecreaseProduct,
+    required TResult Function(_onToggleFavoriteProduct value)
+        onToggleFavoriteProduct,
     required TResult Function(_CartUpdated value) cartUpdated,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +64,7 @@ mixin _$CatalogEvent {
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult? Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult? Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult? Function(_CartUpdated value)? cartUpdated,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +74,7 @@ mixin _$CatalogEvent {
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult Function(_CartUpdated value)? cartUpdated,
     required TResult orElse(),
   }) =>
@@ -134,6 +141,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(Category category) categorySelected,
     required TResult Function(Product product) onIncreaseProduct,
     required TResult Function(Product product) onDecreaseProduct,
+    required TResult Function(Product product) onToggleFavoriteProduct,
     required TResult Function(Map<Product, int> cart) cartUpdated,
   }) {
     return started();
@@ -146,6 +154,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(Category category)? categorySelected,
     TResult? Function(Product product)? onIncreaseProduct,
     TResult? Function(Product product)? onDecreaseProduct,
+    TResult? Function(Product product)? onToggleFavoriteProduct,
     TResult? Function(Map<Product, int> cart)? cartUpdated,
   }) {
     return started?.call();
@@ -158,6 +167,7 @@ class _$StartedImpl implements _Started {
     TResult Function(Category category)? categorySelected,
     TResult Function(Product product)? onIncreaseProduct,
     TResult Function(Product product)? onDecreaseProduct,
+    TResult Function(Product product)? onToggleFavoriteProduct,
     TResult Function(Map<Product, int> cart)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -174,6 +184,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_IncreaseProduct value) onIncreaseProduct,
     required TResult Function(_DecreaseProduct value) onDecreaseProduct,
+    required TResult Function(_onToggleFavoriteProduct value)
+        onToggleFavoriteProduct,
     required TResult Function(_CartUpdated value) cartUpdated,
   }) {
     return started(this);
@@ -186,6 +198,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult? Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult? Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult? Function(_CartUpdated value)? cartUpdated,
   }) {
     return started?.call(this);
@@ -198,6 +211,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult Function(_CartUpdated value)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -292,6 +306,7 @@ class _$CategorySelectedImpl implements _CategorySelected {
     required TResult Function(Category category) categorySelected,
     required TResult Function(Product product) onIncreaseProduct,
     required TResult Function(Product product) onDecreaseProduct,
+    required TResult Function(Product product) onToggleFavoriteProduct,
     required TResult Function(Map<Product, int> cart) cartUpdated,
   }) {
     return categorySelected(category);
@@ -304,6 +319,7 @@ class _$CategorySelectedImpl implements _CategorySelected {
     TResult? Function(Category category)? categorySelected,
     TResult? Function(Product product)? onIncreaseProduct,
     TResult? Function(Product product)? onDecreaseProduct,
+    TResult? Function(Product product)? onToggleFavoriteProduct,
     TResult? Function(Map<Product, int> cart)? cartUpdated,
   }) {
     return categorySelected?.call(category);
@@ -316,6 +332,7 @@ class _$CategorySelectedImpl implements _CategorySelected {
     TResult Function(Category category)? categorySelected,
     TResult Function(Product product)? onIncreaseProduct,
     TResult Function(Product product)? onDecreaseProduct,
+    TResult Function(Product product)? onToggleFavoriteProduct,
     TResult Function(Map<Product, int> cart)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -332,6 +349,8 @@ class _$CategorySelectedImpl implements _CategorySelected {
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_IncreaseProduct value) onIncreaseProduct,
     required TResult Function(_DecreaseProduct value) onDecreaseProduct,
+    required TResult Function(_onToggleFavoriteProduct value)
+        onToggleFavoriteProduct,
     required TResult Function(_CartUpdated value) cartUpdated,
   }) {
     return categorySelected(this);
@@ -344,6 +363,7 @@ class _$CategorySelectedImpl implements _CategorySelected {
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult? Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult? Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult? Function(_CartUpdated value)? cartUpdated,
   }) {
     return categorySelected?.call(this);
@@ -356,6 +376,7 @@ class _$CategorySelectedImpl implements _CategorySelected {
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult Function(_CartUpdated value)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -455,6 +476,7 @@ class _$IncreaseProductImpl implements _IncreaseProduct {
     required TResult Function(Category category) categorySelected,
     required TResult Function(Product product) onIncreaseProduct,
     required TResult Function(Product product) onDecreaseProduct,
+    required TResult Function(Product product) onToggleFavoriteProduct,
     required TResult Function(Map<Product, int> cart) cartUpdated,
   }) {
     return onIncreaseProduct(product);
@@ -467,6 +489,7 @@ class _$IncreaseProductImpl implements _IncreaseProduct {
     TResult? Function(Category category)? categorySelected,
     TResult? Function(Product product)? onIncreaseProduct,
     TResult? Function(Product product)? onDecreaseProduct,
+    TResult? Function(Product product)? onToggleFavoriteProduct,
     TResult? Function(Map<Product, int> cart)? cartUpdated,
   }) {
     return onIncreaseProduct?.call(product);
@@ -479,6 +502,7 @@ class _$IncreaseProductImpl implements _IncreaseProduct {
     TResult Function(Category category)? categorySelected,
     TResult Function(Product product)? onIncreaseProduct,
     TResult Function(Product product)? onDecreaseProduct,
+    TResult Function(Product product)? onToggleFavoriteProduct,
     TResult Function(Map<Product, int> cart)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -495,6 +519,8 @@ class _$IncreaseProductImpl implements _IncreaseProduct {
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_IncreaseProduct value) onIncreaseProduct,
     required TResult Function(_DecreaseProduct value) onDecreaseProduct,
+    required TResult Function(_onToggleFavoriteProduct value)
+        onToggleFavoriteProduct,
     required TResult Function(_CartUpdated value) cartUpdated,
   }) {
     return onIncreaseProduct(this);
@@ -507,6 +533,7 @@ class _$IncreaseProductImpl implements _IncreaseProduct {
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult? Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult? Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult? Function(_CartUpdated value)? cartUpdated,
   }) {
     return onIncreaseProduct?.call(this);
@@ -519,6 +546,7 @@ class _$IncreaseProductImpl implements _IncreaseProduct {
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult Function(_CartUpdated value)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -617,6 +645,7 @@ class _$DecreaseProductImpl implements _DecreaseProduct {
     required TResult Function(Category category) categorySelected,
     required TResult Function(Product product) onIncreaseProduct,
     required TResult Function(Product product) onDecreaseProduct,
+    required TResult Function(Product product) onToggleFavoriteProduct,
     required TResult Function(Map<Product, int> cart) cartUpdated,
   }) {
     return onDecreaseProduct(product);
@@ -629,6 +658,7 @@ class _$DecreaseProductImpl implements _DecreaseProduct {
     TResult? Function(Category category)? categorySelected,
     TResult? Function(Product product)? onIncreaseProduct,
     TResult? Function(Product product)? onDecreaseProduct,
+    TResult? Function(Product product)? onToggleFavoriteProduct,
     TResult? Function(Map<Product, int> cart)? cartUpdated,
   }) {
     return onDecreaseProduct?.call(product);
@@ -641,6 +671,7 @@ class _$DecreaseProductImpl implements _DecreaseProduct {
     TResult Function(Category category)? categorySelected,
     TResult Function(Product product)? onIncreaseProduct,
     TResult Function(Product product)? onDecreaseProduct,
+    TResult Function(Product product)? onToggleFavoriteProduct,
     TResult Function(Map<Product, int> cart)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -657,6 +688,8 @@ class _$DecreaseProductImpl implements _DecreaseProduct {
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_IncreaseProduct value) onIncreaseProduct,
     required TResult Function(_DecreaseProduct value) onDecreaseProduct,
+    required TResult Function(_onToggleFavoriteProduct value)
+        onToggleFavoriteProduct,
     required TResult Function(_CartUpdated value) cartUpdated,
   }) {
     return onDecreaseProduct(this);
@@ -669,6 +702,7 @@ class _$DecreaseProductImpl implements _DecreaseProduct {
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult? Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult? Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult? Function(_CartUpdated value)? cartUpdated,
   }) {
     return onDecreaseProduct?.call(this);
@@ -681,6 +715,7 @@ class _$DecreaseProductImpl implements _DecreaseProduct {
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult Function(_CartUpdated value)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -698,6 +733,178 @@ abstract class _DecreaseProduct implements CatalogEvent {
   @JsonKey(ignore: true)
   _$$DecreaseProductImplCopyWith<_$DecreaseProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$onToggleFavoriteProductImplCopyWith<$Res> {
+  factory _$$onToggleFavoriteProductImplCopyWith(
+          _$onToggleFavoriteProductImpl value,
+          $Res Function(_$onToggleFavoriteProductImpl) then) =
+      __$$onToggleFavoriteProductImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product product});
+
+  $ProductCopyWith<$Res> get product;
+}
+
+/// @nodoc
+class __$$onToggleFavoriteProductImplCopyWithImpl<$Res>
+    extends _$CatalogEventCopyWithImpl<$Res, _$onToggleFavoriteProductImpl>
+    implements _$$onToggleFavoriteProductImplCopyWith<$Res> {
+  __$$onToggleFavoriteProductImplCopyWithImpl(
+      _$onToggleFavoriteProductImpl _value,
+      $Res Function(_$onToggleFavoriteProductImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$onToggleFavoriteProductImpl(
+      null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductCopyWith<$Res> get product {
+    return $ProductCopyWith<$Res>(_value.product, (value) {
+      return _then(_value.copyWith(product: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$onToggleFavoriteProductImpl implements _onToggleFavoriteProduct {
+  const _$onToggleFavoriteProductImpl(this.product);
+
+  @override
+  final Product product;
+
+  @override
+  String toString() {
+    return 'CatalogEvent.onToggleFavoriteProduct(product: $product)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$onToggleFavoriteProductImpl &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$onToggleFavoriteProductImplCopyWith<_$onToggleFavoriteProductImpl>
+      get copyWith => __$$onToggleFavoriteProductImplCopyWithImpl<
+          _$onToggleFavoriteProductImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Category category) categorySelected,
+    required TResult Function(Product product) onIncreaseProduct,
+    required TResult Function(Product product) onDecreaseProduct,
+    required TResult Function(Product product) onToggleFavoriteProduct,
+    required TResult Function(Map<Product, int> cart) cartUpdated,
+  }) {
+    return onToggleFavoriteProduct(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Category category)? categorySelected,
+    TResult? Function(Product product)? onIncreaseProduct,
+    TResult? Function(Product product)? onDecreaseProduct,
+    TResult? Function(Product product)? onToggleFavoriteProduct,
+    TResult? Function(Map<Product, int> cart)? cartUpdated,
+  }) {
+    return onToggleFavoriteProduct?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Category category)? categorySelected,
+    TResult Function(Product product)? onIncreaseProduct,
+    TResult Function(Product product)? onDecreaseProduct,
+    TResult Function(Product product)? onToggleFavoriteProduct,
+    TResult Function(Map<Product, int> cart)? cartUpdated,
+    required TResult orElse(),
+  }) {
+    if (onToggleFavoriteProduct != null) {
+      return onToggleFavoriteProduct(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CategorySelected value) categorySelected,
+    required TResult Function(_IncreaseProduct value) onIncreaseProduct,
+    required TResult Function(_DecreaseProduct value) onDecreaseProduct,
+    required TResult Function(_onToggleFavoriteProduct value)
+        onToggleFavoriteProduct,
+    required TResult Function(_CartUpdated value) cartUpdated,
+  }) {
+    return onToggleFavoriteProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CategorySelected value)? categorySelected,
+    TResult? Function(_IncreaseProduct value)? onIncreaseProduct,
+    TResult? Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult? Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
+    TResult? Function(_CartUpdated value)? cartUpdated,
+  }) {
+    return onToggleFavoriteProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CategorySelected value)? categorySelected,
+    TResult Function(_IncreaseProduct value)? onIncreaseProduct,
+    TResult Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
+    TResult Function(_CartUpdated value)? cartUpdated,
+    required TResult orElse(),
+  }) {
+    if (onToggleFavoriteProduct != null) {
+      return onToggleFavoriteProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _onToggleFavoriteProduct implements CatalogEvent {
+  const factory _onToggleFavoriteProduct(final Product product) =
+      _$onToggleFavoriteProductImpl;
+
+  Product get product;
+  @JsonKey(ignore: true)
+  _$$onToggleFavoriteProductImplCopyWith<_$onToggleFavoriteProductImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -774,6 +981,7 @@ class _$CartUpdatedImpl implements _CartUpdated {
     required TResult Function(Category category) categorySelected,
     required TResult Function(Product product) onIncreaseProduct,
     required TResult Function(Product product) onDecreaseProduct,
+    required TResult Function(Product product) onToggleFavoriteProduct,
     required TResult Function(Map<Product, int> cart) cartUpdated,
   }) {
     return cartUpdated(cart);
@@ -786,6 +994,7 @@ class _$CartUpdatedImpl implements _CartUpdated {
     TResult? Function(Category category)? categorySelected,
     TResult? Function(Product product)? onIncreaseProduct,
     TResult? Function(Product product)? onDecreaseProduct,
+    TResult? Function(Product product)? onToggleFavoriteProduct,
     TResult? Function(Map<Product, int> cart)? cartUpdated,
   }) {
     return cartUpdated?.call(cart);
@@ -798,6 +1007,7 @@ class _$CartUpdatedImpl implements _CartUpdated {
     TResult Function(Category category)? categorySelected,
     TResult Function(Product product)? onIncreaseProduct,
     TResult Function(Product product)? onDecreaseProduct,
+    TResult Function(Product product)? onToggleFavoriteProduct,
     TResult Function(Map<Product, int> cart)? cartUpdated,
     required TResult orElse(),
   }) {
@@ -814,6 +1024,8 @@ class _$CartUpdatedImpl implements _CartUpdated {
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_IncreaseProduct value) onIncreaseProduct,
     required TResult Function(_DecreaseProduct value) onDecreaseProduct,
+    required TResult Function(_onToggleFavoriteProduct value)
+        onToggleFavoriteProduct,
     required TResult Function(_CartUpdated value) cartUpdated,
   }) {
     return cartUpdated(this);
@@ -826,6 +1038,7 @@ class _$CartUpdatedImpl implements _CartUpdated {
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult? Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult? Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult? Function(_CartUpdated value)? cartUpdated,
   }) {
     return cartUpdated?.call(this);
@@ -838,6 +1051,7 @@ class _$CartUpdatedImpl implements _CartUpdated {
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_IncreaseProduct value)? onIncreaseProduct,
     TResult Function(_DecreaseProduct value)? onDecreaseProduct,
+    TResult Function(_onToggleFavoriteProduct value)? onToggleFavoriteProduct,
     TResult Function(_CartUpdated value)? cartUpdated,
     required TResult orElse(),
   }) {

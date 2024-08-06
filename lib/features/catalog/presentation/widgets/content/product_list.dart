@@ -6,6 +6,7 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
   final Map<int, int> quantities;
   final ValueChanged<Product> onIncreaseTap;
   final ValueChanged<Product> onDecreaseTap;
+  final ValueChanged<Product> onFavoriteTap;
 
   const _ProductList({
     required this.isLoading,
@@ -13,6 +14,7 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
     required this.quantities,
     required this.onIncreaseTap,
     required this.onDecreaseTap,
+    required this.onFavoriteTap,
   });
 
   @override
@@ -34,6 +36,7 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
                 padding: AppSizes.p4,
                 onIncreaseTap: onIncreaseTap,
                 onDecreaseTap: onDecreaseTap,
+                onFavoriteTap: onFavoriteTap,
               );
             },
           );

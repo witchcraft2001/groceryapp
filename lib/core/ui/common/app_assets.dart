@@ -22,6 +22,8 @@ class AppAssets {
   static String iconFishActive = 'assets/images/ic_fish_active.svg';
   static String iconFruits = 'assets/images/ic_fruits.svg';
   static String iconFruitsActive = 'assets/images/ic_fruits_active.svg';
+  static String iconHeartFill = 'assets/images/ic_heart_fill.svg';
+  static String iconHeartLine = 'assets/images/ic_heart_line.svg';
   static String iconHome = 'assets/images/ic_home.svg';
   static String iconHomeSelected = 'assets/images/ic_home_active.svg';
   static String iconMeat = 'assets/images/ic_meat.svg';

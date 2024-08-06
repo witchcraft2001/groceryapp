@@ -9,8 +9,14 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
+import 'package:grocery_app/core/data/data_source/categories_data_source.dart'
+    as _i571;
+import 'package:grocery_app/core/data/data_source/products_data_source.dart'
+    as _i664;
 import 'package:grocery_app/core/data/data_source/settings_data_source.dart'
     as _i501;
+import 'package:grocery_app/core/data/repository/favorites_repository.dart'
+    as _i311;
 import 'package:grocery_app/core/data/repository/settings_repository.dart'
     as _i806;
 import 'package:grocery_app/core/data/service/cart_service.dart' as _i179;
@@ -33,6 +39,8 @@ import 'package:grocery_app/features/catalog/data/repository/products_repository
     as _i165;
 import 'package:grocery_app/features/catalog/domain/interactor/categories_interactor.dart'
     as _i49;
+import 'package:grocery_app/features/catalog/domain/interactor/favorites_interactor.dart'
+    as _i700;
 import 'package:grocery_app/features/catalog/domain/interactor/products_interactor.dart'
     as _i892;
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_bloc.dart'
@@ -57,27 +65,29 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i524.LogService>(() => _i524.LogService());
-    gh.lazySingleton<_i202.CategoriesRepository>(
-        () => _i202.CategoriesRepository());
-    gh.lazySingleton<_i165.ProductsRepository>(
-        () => _i165.ProductsRepository());
     gh.lazySingleton<_i179.CartService>(() => _i179.CartService());
-    gh.factory<_i49.CategoriesInteractor>(
-        () => _i49.CategoriesInteractor(gh<_i202.CategoriesRepository>()));
+    gh.lazySingleton<_i664.ProductsDataSource>(
+        () => _i664.ProductsDataSource());
+    gh.lazySingleton<_i571.CategoriesDataSource>(
+        () => _i571.CategoriesDataSource());
     gh.lazySingleton<_i501.SettingsDataSource>(
         () => _i501.SettingsDataSource(gh<_i460.SharedPreferences>()));
-    gh.factory<_i892.ProductsInteractor>(
-        () => _i892.ProductsInteractor(gh<_i165.ProductsRepository>()));
+    gh.factory<_i165.ProductsRepository>(
+        () => _i165.ProductsRepository(gh<_i664.ProductsDataSource>()));
+    gh.factory<_i311.FavoritesRepository>(
+        () => _i311.FavoritesRepository(gh<_i664.ProductsDataSource>()));
     gh.lazySingleton<_i806.SettingsRepository>(
         () => _i806.SettingsRepository(gh<_i501.SettingsDataSource>()));
     gh.factory<_i585.CartInteractor>(
         () => _i585.CartInteractor(gh<_i179.CartService>()));
-    gh.factory<_i666.CatalogBloc>(() => _i666.CatalogBloc(
-          gh<_i49.CategoriesInteractor>(),
-          gh<_i524.LogService>(),
-          gh<_i892.ProductsInteractor>(),
-          gh<_i585.CartInteractor>(),
-        ));
+    gh.factory<_i202.CategoriesRepository>(
+        () => _i202.CategoriesRepository(gh<_i571.CategoriesDataSource>()));
+    gh.factory<_i49.CategoriesInteractor>(
+        () => _i49.CategoriesInteractor(gh<_i202.CategoriesRepository>()));
+    gh.factory<_i700.FavoritesInteractor>(
+        () => _i700.FavoritesInteractor(gh<_i311.FavoritesRepository>()));
+    gh.factory<_i892.ProductsInteractor>(
+        () => _i892.ProductsInteractor(gh<_i165.ProductsRepository>()));
     gh.factory<_i407.GetDarkModeSettingsUseCase>(
         () => _i407.GetDarkModeSettingsUseCase(gh<_i806.SettingsRepository>()));
     gh.factory<_i743.GetSystemThemeSettingsUseCase>(() =>
@@ -91,6 +101,13 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i407.GetDarkModeSettingsUseCase>(),
           gh<_i486.SetSystemThemeSettingsUseCase>(),
           gh<_i161.SetDarkModeSettingsUseCase>(),
+        ));
+    gh.factory<_i666.CatalogBloc>(() => _i666.CatalogBloc(
+          gh<_i49.CategoriesInteractor>(),
+          gh<_i524.LogService>(),
+          gh<_i892.ProductsInteractor>(),
+          gh<_i585.CartInteractor>(),
+          gh<_i700.FavoritesInteractor>(),
         ));
     return this;
   }

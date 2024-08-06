@@ -6,5 +6,6 @@ class CatalogEvent with _$CatalogEvent {
   const factory CatalogEvent.categorySelected(Category category) = _CategorySelected;
   const factory CatalogEvent.onIncreaseProduct(Product product) = _IncreaseProduct;
   const factory CatalogEvent.onDecreaseProduct(Product product) = _DecreaseProduct;
+  const factory CatalogEvent.onToggleFavoriteProduct(Product product) = _onToggleFavoriteProduct;
   const factory CatalogEvent.cartUpdated(Map<Product, int> cart) = _CartUpdated;
 }

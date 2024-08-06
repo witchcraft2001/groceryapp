@@ -4,13 +4,15 @@ import 'dart:async';
 // Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:grocery_app/core/domain/interactor/cart_interactor.dart';
 import 'package:grocery_app/features/catalog/domain/entity/category.dart';
 import 'package:grocery_app/features/catalog/domain/entity/product.dart';
+import 'package:grocery_app/features/catalog/domain/interactor/favorites_interactor.dart';
 import 'package:grocery_app/features/catalog/domain/interactor/products_interactor.dart';
+import 'package:injectable/injectable.dart';
+
 import '../../../../core/data/service/log_service.dart';
 import '../../domain/interactor/categories_interactor.dart';
 import 'catalog_view_state.dart';
@@ -26,6 +28,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   final CategoriesInteractor _categoriesInteractor;
   final ProductsInteractor _productsInteractor;
   final CartInteractor _cartInteractor;
+  final FavoritesInteractor _favoritesInteractor;
   final LogService _logService;
   late StreamSubscription<Map<Product, int>> _cartSubscription;
 
@@ -34,6 +37,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     this._logService,
     this._productsInteractor,
     this._cartInteractor,
+    this._favoritesInteractor,
   ) : super(const CatalogState.initial()) {
     _cartSubscription = _cartInteractor.getCartSubject().listen((cart) {
       add(CatalogEvent.cartUpdated(cart));
@@ -43,6 +47,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     on<_CartUpdated>((event, emit) => _updateCart(event.cart, emit));
     on<_IncreaseProduct>((event, emit) => _increaseProduct(event.product));
     on<_DecreaseProduct>((event, emit) => _decreaseProduct(event.product));
+    on<_onToggleFavoriteProduct>((event, emit) async => await _toggleFavorite(event.product, emit));
   }
 
   void _increaseProduct(Product product) {
@@ -51,6 +56,21 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
 
   void _decreaseProduct(Product product) {
     _cartInteractor.decreaseProductCount(product);
+  }
+
+  Future<void> _toggleFavorite(Product product, Emitter<CatalogState> emit) async {
+    try {
+      final newProduct = product.isFavorite
+          ? await _favoritesInteractor.removeFavoriteProduct(product.id)
+          : await _favoritesInteractor.addFavoriteProduct(product.id);
+      final products = _getState().products;
+      final newState = _getState().copyWith(
+        products: products.map((e) => e.id == product.id ? newProduct : e).toList(growable: false),
+      );
+      _updateState(newState, emit);
+    } catch (e, stack) {
+      await _logService.recordError(e, stack);
+    }
   }
 
   Future<void> _init(Emitter<CatalogState> emit) async {

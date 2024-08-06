@@ -1,7 +1,10 @@
 // Flutter imports:
+
+// Flutter imports:
+import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Project imports:
@@ -22,6 +25,7 @@ class ProductItem extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final ValueChanged<Product> onIncreaseTap;
   final ValueChanged<Product> onDecreaseTap;
+  final ValueChanged<Product> onFavoriteTap;
 
   const ProductItem({
     super.key,
@@ -30,6 +34,7 @@ class ProductItem extends StatelessWidget {
     this.padding,
     required this.onIncreaseTap,
     required this.onDecreaseTap,
+    required this.onFavoriteTap,
   });
 
   @override
@@ -42,18 +47,22 @@ class ProductItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: SizedBox(
-                      height: AppSizes.productItemImageHeight,
-                      child: Stack(
-                        children: [CachedNetworkImage(imageUrl: item.cover)],
+              SizedBox(
+                height: AppSizes.productItemImageHeight,
+                child: Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    CachedNetworkImage(imageUrl: item.cover),
+                    Positioned(
+                      top: AppSizes.sp8,
+                      right: AppSizes.sp8,
+                      child: _FavoriteButton(
+                        isFavorite: item.isFavorite,
+                        onTap: () => onFavoriteTap(item),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(
                 height: AppSizes.sp8,
@@ -100,6 +109,25 @@ class ProductItem extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _FavoriteButton extends StatelessWidget {
+  final bool isFavorite;
+  final Function() onTap;
+
+  const _FavoriteButton({required this.isFavorite, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      borderRadius: AppDecoration.brBtnOther,
+      color: context.appTheme?.colors.brAndIconsShapes,
+      child: _IconButton(
+        onTap: onTap,
+        icon: isFavorite ? AppAssets.iconHeartFill : AppAssets.iconHeartLine,
       ),
     );
   }
@@ -255,6 +283,7 @@ class _PlusMinusButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _IconButton(
+                  padding: AppSizes.p2,
                   onTap: onDecreaseTap,
                   icon: AppAssets.iconMinus,
                 ),
@@ -284,6 +313,7 @@ class _PlusMinusButton extends StatelessWidget {
                   ),
                 ),
                 _IconButton(
+                  padding: AppSizes.p2,
                   onTap: onIncreaseTap,
                   icon: AppAssets.iconAdd,
                 )
@@ -296,14 +326,15 @@ class _PlusMinusButton extends StatelessWidget {
 
 class _IconButton extends StatelessWidget {
   final Function() onTap;
+  final EdgeInsetsGeometry? padding;
   final String icon;
 
-  const _IconButton({required this.onTap, required this.icon});
+  const _IconButton({required this.onTap, required this.icon, this.padding});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: AppSizes.p2,
+      padding: padding ?? EdgeInsets.zero,
       child: InkWell(
         borderRadius: AppDecoration.brBtnOther,
         onTap: onTap,
