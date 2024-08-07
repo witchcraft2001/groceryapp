@@ -109,6 +109,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Cart items:`
+  String get cartItems {
+    return Intl.message(
+      'Cart items:',
+      name: 'cartItems',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order price`
+  String get orderPrice {
+    return Intl.message(
+      'Order price',
+      name: 'orderPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total price:`
+  String get totalPrice {
+    return Intl.message(
+      'Total price:',
+      name: 'totalPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minimal order price:`
+  String get minOrderPrice {
+    return Intl.message(
+      'Minimal order price:',
+      name: 'minOrderPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount:`
+  String get amount {
+    return Intl.message(
+      'Amount:',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount with discount:`
+  String get amountWithDiscount {
+    return Intl.message(
+      'Amount with discount:',
+      name: 'amountWithDiscount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery:`
+  String get delivery {
+    return Intl.message(
+      'Delivery:',
+      name: 'delivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discount:`
+  String get discount {
+    return Intl.message(
+      'Discount:',
+      name: 'discount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Checkout`
+  String get checkout {
+    return Intl.message(
+      'Checkout',
+      name: 'checkout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{price} before free delivery`
+  String beforeFreeDelivery(Object price) {
+    return Intl.message(
+      '$price before free delivery',
+      name: 'beforeFreeDelivery',
+      desc: '',
+      args: [price],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

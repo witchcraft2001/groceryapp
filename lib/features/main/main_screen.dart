@@ -15,6 +15,7 @@ import 'package:grocery_app/features/favorites/presentation/widgets/favorites_sc
 import 'package:grocery_app/features/main/bloc/main_bloc.dart';
 import 'package:grocery_app/injection.dart';
 import '../../generated/l10n.dart';
+import '../cart/presentation/widgets/cart_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -99,7 +100,7 @@ class MainScreen extends StatelessWidget {
               children: const [
                 Placeholder(),
                 CatalogScreen(),
-                Placeholder(),
+                CartScreen(),
                 FavoritesScreen(),
                 Placeholder(),
               ],

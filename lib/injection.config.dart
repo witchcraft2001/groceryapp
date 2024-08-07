@@ -44,6 +44,8 @@ import 'package:grocery_app/core/domain/use_case/set_dark_mode_settings_use_case
 import 'package:grocery_app/core/domain/use_case/set_system_theme_settings_use_case.dart'
     as _i486;
 import 'package:grocery_app/core/theme/domain/theme_bloc.dart' as _i69;
+import 'package:grocery_app/features/cart/presentation/bloc/cart_bloc.dart'
+    as _i257;
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_bloc.dart'
     as _i666;
 import 'package:grocery_app/features/favorites/presentation/bloc/favorites_bloc.dart'
@@ -104,6 +106,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i477.MainBloc>(() => _i477.MainBloc(
           gh<_i813.FavoritesInteractor>(),
           gh<_i585.CartInteractor>(),
+        ));
+    gh.factory<_i257.CartBloc>(() => _i257.CartBloc(
+          gh<_i585.CartInteractor>(),
+          gh<_i813.FavoritesInteractor>(),
+          gh<_i465.Constants>(),
+          gh<_i524.LogService>(),
+          gh<_i607.ProductsInteractor>(),
         ));
     gh.factory<_i986.CategoriesInteractor>(
         () => _i986.CategoriesInteractor(gh<_i383.CategoriesRepository>()));

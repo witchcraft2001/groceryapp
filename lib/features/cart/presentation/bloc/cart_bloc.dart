@@ -4,6 +4,7 @@ import 'dart:async';
 // Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:grocery_app/core/extensions/double_extensions.dart';
@@ -14,6 +15,7 @@ import '../../../../core/domain/entity/product.dart';
 import '../../../../core/domain/interactor/cart_interactor.dart';
 import '../../../../core/domain/interactor/favorites_interactor.dart';
 import '../../../../core/domain/interactor/products_interactor.dart';
+import '../../../../core/util/product_price_calculator.dart';
 import 'cart_view_state.dart';
 
 part 'cart_bloc.freezed.dart';
@@ -22,8 +24,9 @@ part 'cart_event.dart';
 
 part 'cart_state.dart';
 
+@injectable
 class CartBloc extends Bloc<CartEvent, CartState> {
-  late StreamSubscription<int> _favoritesSubscription;
+  late StreamSubscription<Product> _favoriteChangesSubscription;
   late StreamSubscription<Map<int, int>> _cartSubscription;
   final Constants _constants;
   final LogService _logService;
@@ -41,9 +44,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     _cartSubscription = _cartInteractor.getCartSubject().listen((cart) {
       add(CartEvent.cartUpdated(cart));
     });
-    _favoritesSubscription = _favoritesInteractor.getFavoritesCountSubject().listen((count) {
-      add(const CartEvent.started());
-    });
+    _favoriteChangesSubscription =
+        _favoritesInteractor.getFavoriteChangesSubject().listen((product) {
+          add(CartEvent.onUpdateFavoriteProduct(product));
+        });
     on<_Started>((event, emit) async => await _init(emit));
     on<_CartUpdated>((event, emit) => _updateCartItems(emit));
     on<_IncreaseProduct>((event, emit) => _increaseProduct(event.product));
@@ -69,6 +73,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       final cartPrice = cartItems.entries
           .map((entry) => _getProductPrice(products, entry.key, entry.value))
           .fold(0.0, (sum, price) => sum + price);
+      final cartPriceWithoutDiscount = cartItems.entries
+          .map((entry) => _getProductPriceWithoutDiscount(products, entry.key, entry.value))
+          .fold(0.0, (sum, price) => sum + price);
+      final discount = cartPriceWithoutDiscount - cartPrice;
       final deliveryPrice = (_constants.minOrderPriceToDiscountedDelivery >= cartPrice)
           ? _constants.deliveryPrice
           : _constants.minOrderPriceToDiscountedDelivery;
@@ -78,9 +86,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         _getState().copyWith(
           products: products,
           cartPrice: cartPrice,
+          cartPriceWithoutDiscount: cartPriceWithoutDiscount,
+          discount: discount,
           deliveryPrice: deliveryPrice,
           totalPrice: totalPrice,
           isReadyToOrder: isReadyToOrder,
+          cartQuantities: _cartInteractor.getCartItems().map((key, value) => MapEntry(key, value)),
           isError: false,
           isLoading: false,
         ),
@@ -127,7 +138,16 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   double _getProductPrice(List<Product> products, int id, int quantity) {
     final product = products.firstWhereOrNull((e) => e.id == id);
     if (product != null) {
-      return ((product.multiplicity * quantity).ceilToPlaces(2) * product.price).ceilToPlaces(2);
+      return calculateProductPrice(product, quantity);
+    } else {
+      return 0;
+    }
+  }
+
+  double _getProductPriceWithoutDiscount(List<Product> products, int id, int quantity) {
+    final product = products.firstWhereOrNull((e) => e.id == id);
+    if (product != null) {
+      return calculateProductPriceWithoutDiscount(product, quantity);
     } else {
       return 0;
     }
@@ -138,13 +158,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   CartViewState _getState() {
-    return (state is Ready) ? (state as Ready).data : CartViewState(currency: _constants.currency);
+    return (state is Ready) ? (state as Ready).data : CartViewState(currency: _constants.currency, minOrderPrice: _constants.minOrderPrice);
   }
 
   @override
   Future<void> close() async {
     super.close();
     _cartSubscription.cancel();
-    _favoritesSubscription.cancel();
+    _favoriteChangesSubscription.cancel();
   }
 }

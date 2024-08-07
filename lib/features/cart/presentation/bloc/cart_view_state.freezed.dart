@@ -20,8 +20,11 @@ mixin _$CartViewState {
   List<Product> get products => throw _privateConstructorUsedError;
   Map<int, int> get cartQuantities => throw _privateConstructorUsedError;
   double get cartPrice => throw _privateConstructorUsedError;
+  double get cartPriceWithoutDiscount => throw _privateConstructorUsedError;
+  double get discount => throw _privateConstructorUsedError;
   double get deliveryPrice => throw _privateConstructorUsedError;
   double get totalPrice => throw _privateConstructorUsedError;
+  double get minOrderPrice => throw _privateConstructorUsedError;
   String get currency => throw _privateConstructorUsedError;
   bool get isReadyToOrder => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
@@ -42,8 +45,11 @@ abstract class $CartViewStateCopyWith<$Res> {
       List<Product> products,
       Map<int, int> cartQuantities,
       double cartPrice,
+      double cartPriceWithoutDiscount,
+      double discount,
       double deliveryPrice,
       double totalPrice,
+      double minOrderPrice,
       String currency,
       bool isReadyToOrder,
       bool isError});
@@ -66,8 +72,11 @@ class _$CartViewStateCopyWithImpl<$Res, $Val extends CartViewState>
     Object? products = null,
     Object? cartQuantities = null,
     Object? cartPrice = null,
+    Object? cartPriceWithoutDiscount = null,
+    Object? discount = null,
     Object? deliveryPrice = null,
     Object? totalPrice = null,
+    Object? minOrderPrice = null,
     Object? currency = null,
     Object? isReadyToOrder = null,
     Object? isError = null,
@@ -89,6 +98,14 @@ class _$CartViewStateCopyWithImpl<$Res, $Val extends CartViewState>
           ? _value.cartPrice
           : cartPrice // ignore: cast_nullable_to_non_nullable
               as double,
+      cartPriceWithoutDiscount: null == cartPriceWithoutDiscount
+          ? _value.cartPriceWithoutDiscount
+          : cartPriceWithoutDiscount // ignore: cast_nullable_to_non_nullable
+              as double,
+      discount: null == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double,
       deliveryPrice: null == deliveryPrice
           ? _value.deliveryPrice
           : deliveryPrice // ignore: cast_nullable_to_non_nullable
@@ -96,6 +113,10 @@ class _$CartViewStateCopyWithImpl<$Res, $Val extends CartViewState>
       totalPrice: null == totalPrice
           ? _value.totalPrice
           : totalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      minOrderPrice: null == minOrderPrice
+          ? _value.minOrderPrice
+          : minOrderPrice // ignore: cast_nullable_to_non_nullable
               as double,
       currency: null == currency
           ? _value.currency
@@ -126,8 +147,11 @@ abstract class _$$CartViewStateImplCopyWith<$Res>
       List<Product> products,
       Map<int, int> cartQuantities,
       double cartPrice,
+      double cartPriceWithoutDiscount,
+      double discount,
       double deliveryPrice,
       double totalPrice,
+      double minOrderPrice,
       String currency,
       bool isReadyToOrder,
       bool isError});
@@ -148,8 +172,11 @@ class __$$CartViewStateImplCopyWithImpl<$Res>
     Object? products = null,
     Object? cartQuantities = null,
     Object? cartPrice = null,
+    Object? cartPriceWithoutDiscount = null,
+    Object? discount = null,
     Object? deliveryPrice = null,
     Object? totalPrice = null,
+    Object? minOrderPrice = null,
     Object? currency = null,
     Object? isReadyToOrder = null,
     Object? isError = null,
@@ -171,6 +198,14 @@ class __$$CartViewStateImplCopyWithImpl<$Res>
           ? _value.cartPrice
           : cartPrice // ignore: cast_nullable_to_non_nullable
               as double,
+      cartPriceWithoutDiscount: null == cartPriceWithoutDiscount
+          ? _value.cartPriceWithoutDiscount
+          : cartPriceWithoutDiscount // ignore: cast_nullable_to_non_nullable
+              as double,
+      discount: null == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double,
       deliveryPrice: null == deliveryPrice
           ? _value.deliveryPrice
           : deliveryPrice // ignore: cast_nullable_to_non_nullable
@@ -178,6 +213,10 @@ class __$$CartViewStateImplCopyWithImpl<$Res>
       totalPrice: null == totalPrice
           ? _value.totalPrice
           : totalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      minOrderPrice: null == minOrderPrice
+          ? _value.minOrderPrice
+          : minOrderPrice // ignore: cast_nullable_to_non_nullable
               as double,
       currency: null == currency
           ? _value.currency
@@ -203,8 +242,11 @@ class _$CartViewStateImpl implements _CartViewState {
       final List<Product> products = const [],
       final Map<int, int> cartQuantities = const {},
       this.cartPrice = 0.0,
+      this.cartPriceWithoutDiscount = 0.0,
+      this.discount = 0.0,
       this.deliveryPrice = 0.0,
       this.totalPrice = 0.0,
+      this.minOrderPrice = 0.0,
       this.currency = "",
       this.isReadyToOrder = false,
       this.isError = false})
@@ -237,10 +279,19 @@ class _$CartViewStateImpl implements _CartViewState {
   final double cartPrice;
   @override
   @JsonKey()
+  final double cartPriceWithoutDiscount;
+  @override
+  @JsonKey()
+  final double discount;
+  @override
+  @JsonKey()
   final double deliveryPrice;
   @override
   @JsonKey()
   final double totalPrice;
+  @override
+  @JsonKey()
+  final double minOrderPrice;
   @override
   @JsonKey()
   final String currency;
@@ -253,7 +304,7 @@ class _$CartViewStateImpl implements _CartViewState {
 
   @override
   String toString() {
-    return 'CartViewState(isLoading: $isLoading, products: $products, cartQuantities: $cartQuantities, cartPrice: $cartPrice, deliveryPrice: $deliveryPrice, totalPrice: $totalPrice, currency: $currency, isReadyToOrder: $isReadyToOrder, isError: $isError)';
+    return 'CartViewState(isLoading: $isLoading, products: $products, cartQuantities: $cartQuantities, cartPrice: $cartPrice, cartPriceWithoutDiscount: $cartPriceWithoutDiscount, discount: $discount, deliveryPrice: $deliveryPrice, totalPrice: $totalPrice, minOrderPrice: $minOrderPrice, currency: $currency, isReadyToOrder: $isReadyToOrder, isError: $isError)';
   }
 
   @override
@@ -268,10 +319,17 @@ class _$CartViewStateImpl implements _CartViewState {
                 .equals(other._cartQuantities, _cartQuantities) &&
             (identical(other.cartPrice, cartPrice) ||
                 other.cartPrice == cartPrice) &&
+            (identical(
+                    other.cartPriceWithoutDiscount, cartPriceWithoutDiscount) ||
+                other.cartPriceWithoutDiscount == cartPriceWithoutDiscount) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
             (identical(other.deliveryPrice, deliveryPrice) ||
                 other.deliveryPrice == deliveryPrice) &&
             (identical(other.totalPrice, totalPrice) ||
                 other.totalPrice == totalPrice) &&
+            (identical(other.minOrderPrice, minOrderPrice) ||
+                other.minOrderPrice == minOrderPrice) &&
             (identical(other.currency, currency) ||
                 other.currency == currency) &&
             (identical(other.isReadyToOrder, isReadyToOrder) ||
@@ -286,8 +344,11 @@ class _$CartViewStateImpl implements _CartViewState {
       const DeepCollectionEquality().hash(_products),
       const DeepCollectionEquality().hash(_cartQuantities),
       cartPrice,
+      cartPriceWithoutDiscount,
+      discount,
       deliveryPrice,
       totalPrice,
+      minOrderPrice,
       currency,
       isReadyToOrder,
       isError);
@@ -305,8 +366,11 @@ abstract class _CartViewState implements CartViewState {
       final List<Product> products,
       final Map<int, int> cartQuantities,
       final double cartPrice,
+      final double cartPriceWithoutDiscount,
+      final double discount,
       final double deliveryPrice,
       final double totalPrice,
+      final double minOrderPrice,
       final String currency,
       final bool isReadyToOrder,
       final bool isError}) = _$CartViewStateImpl;
@@ -320,9 +384,15 @@ abstract class _CartViewState implements CartViewState {
   @override
   double get cartPrice;
   @override
+  double get cartPriceWithoutDiscount;
+  @override
+  double get discount;
+  @override
   double get deliveryPrice;
   @override
   double get totalPrice;
+  @override
+  double get minOrderPrice;
   @override
   String get currency;
   @override

@@ -16,6 +16,7 @@ import 'package:grocery_app/core/ui/common/app_sizes.dart';
 import 'package:grocery_app/core/ui/common/price_info.dart';
 import '../../../../../core/domain/entity/product.dart';
 import '../../../../../core/ui/common/add_product_to_cart_button.dart';
+import '../../../../../core/ui/common/favorite_button.dart';
 
 class ProductItem extends StatelessWidget {
   final Product item;
@@ -56,7 +57,7 @@ class ProductItem extends StatelessWidget {
                     Positioned(
                       top: AppSizes.sp8,
                       right: AppSizes.sp8,
-                      child: _FavoriteButton(
+                      child: FavoriteButton(
                         isFavorite: item.isFavorite,
                         onTap: () => onFavoriteTap(item),
                       ),
@@ -111,25 +112,6 @@ class ProductItem extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _FavoriteButton extends StatelessWidget {
-  final bool isFavorite;
-  final Function() onTap;
-
-  const _FavoriteButton({required this.isFavorite, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      borderRadius: AppDecoration.brBtnOther,
-      color: context.appTheme?.colors.brAndIconsShapes,
-      child: AppIconButton(
-        onTap: onTap,
-        icon: isFavorite ? AppAssets.iconHeartFill : AppAssets.iconHeartLine,
       ),
     );
   }

@@ -1,4 +1,6 @@
 // Flutter imports:
+
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -9,38 +11,35 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // Project imports:
 import 'package:grocery_app/core/extensions/context_extensions.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
-import 'package:grocery_app/core/ui/common/app_assets.dart';
+import 'package:grocery_app/core/ui/common/app_button.dart';
 import 'package:grocery_app/core/ui/common/app_decorations.dart';
-import 'package:grocery_app/core/ui/common/app_icon_button.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
-import 'package:grocery_app/features/favorites/presentation/bloc/favorites_bloc.dart';
-import 'package:grocery_app/features/favorites/presentation/bloc/favorites_view_state.dart';
 import 'package:grocery_app/injection.dart';
 import '../../../../core/domain/entity/product.dart';
 import '../../../../core/ui/common/add_product_to_cart_button.dart';
-import '../../../../core/ui/common/app_shimmer.dart';
-import '../../../../core/ui/common/app_shimmer_content.dart';
 import '../../../../core/ui/common/grocery_app_bar.dart';
 import '../../../../core/ui/common/price_info.dart';
+import '../../../../core/util/price_formatter.dart';
+import '../../../../core/util/product_price_calculator.dart';
 import '../../../../generated/l10n.dart';
+import '../bloc/cart_bloc.dart';
+import '../bloc/cart_view_state.dart';
 
-part './content/favorite_item.dart';
+part './content/cart_item.dart';
 
-part './content/favorite_list.dart';
+part './content/cart_list.dart';
 
-part './content/favorites_shimmer.dart';
-
-class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({super.key});
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => getIt<FavoritesBloc>()..add(const FavoritesEvent.started()),
-      child: BlocBuilder<FavoritesBloc, FavoritesState>(
+      create: (_) => getIt<CartBloc>()..add(const CartEvent.started()),
+      child: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) => state.when(
                 initial: () => const SizedBox(),
-                ready: (state) => _FavoritesScreenInternal(
+                ready: (state) => _CartScreenInternal(
                   state: state,
                 ),
               )),
@@ -48,28 +47,38 @@ class FavoritesScreen extends StatelessWidget {
   }
 }
 
-class _FavoritesScreenInternal extends StatelessWidget {
-  final FavoritesViewState state;
+class _CartScreenInternal extends StatelessWidget {
+  final CartViewState state;
 
-  const _FavoritesScreenInternal({required this.state});
+  const _CartScreenInternal({required this.state});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         GroceryAppBar(
-          title: S.current.favorites,
+          title: S.current.cart,
         ),
         Flexible(
-          child: _FavoriteList(
+          child: _CartList(
             isLoading: state.isLoading,
             items: state.products,
             onTap: (_) {},
             quantities: state.cartQuantities,
             currency: state.currency,
-            onIncreaseTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onIncreaseProduct(product)),
-            onDecreaseTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onDecreaseProduct(product)),
-            onRemoveFavoriteTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onRemoveFavoriteProduct(product)),
+            cartPrice: state.cartPrice,
+            cartPriceWithoutDiscount: state.cartPriceWithoutDiscount,
+            discount: state.discount,
+            deliveryPrice: state.deliveryPrice,
+            totalPrice: state.totalPrice,
+            isReadyToOrder: state.isReadyToOrder,
+            minOrderPrice: state.minOrderPrice,
+            onIncreaseTap: (product) =>
+                context.bloc<CartBloc>().add(CartEvent.onIncreaseProduct(product)),
+            onDecreaseTap: (product) =>
+                context.bloc<CartBloc>().add(CartEvent.onDecreaseProduct(product)),
+            onFavoriteTap: (product) =>
+                context.bloc<CartBloc>().add(CartEvent.onToggleFavoriteProduct(product)),
           ),
         )
       ],

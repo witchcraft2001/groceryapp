@@ -4,5 +4,15 @@
   "catalog": "Catalog",
   "profile": "Profile",
   "favorites": "Favorites",
-  "addToCart": "Add to cart"
+  "addToCart": "Add to cart",
+  "cartItems": "Cart items:",
+  "orderPrice": "Order price",
+  "totalPrice": "Total price:",
+  "minOrderPrice": "Minimal order price:",
+  "amount": "Amount:",
+  "amountWithDiscount": "Amount with discount:",
+  "delivery": "Delivery:",
+  "discount": "Discount:",
+  "checkout": "Checkout",
+  "beforeFreeDelivery": "{price} before free delivery"
 }
