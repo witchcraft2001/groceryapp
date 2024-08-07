@@ -8,10 +8,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 // Project imports:
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
-import 'package:grocery_app/core/ui/common/app_assets.dart';
 import 'package:grocery_app/core/ui/common/app_card.dart';
-import 'package:grocery_app/core/ui/common/app_decorations.dart';
-import 'package:grocery_app/core/ui/common/app_icon_button.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
 import 'package:grocery_app/core/ui/common/price_info.dart';
 import '../../../../../core/domain/entity/product.dart';

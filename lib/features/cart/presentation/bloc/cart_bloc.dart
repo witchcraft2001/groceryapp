@@ -7,7 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
-import 'package:grocery_app/core/extensions/double_extensions.dart';
 import 'package:grocery_app/core/extensions/iterable_extensions.dart';
 import '../../../../core/data/constants.dart';
 import '../../../../core/data/service/log_service.dart';
