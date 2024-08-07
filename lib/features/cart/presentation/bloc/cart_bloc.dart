@@ -4,10 +4,11 @@ import 'dart:async';
 // Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:grocery_app/core/extensions/iterable_extensions.dart';
+import 'package:injectable/injectable.dart';
+
 import '../../../../core/data/constants.dart';
 import '../../../../core/data/service/log_service.dart';
 import '../../../../core/domain/entity/product.dart';
@@ -45,8 +46,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     });
     _favoriteChangesSubscription =
         _favoritesInteractor.getFavoriteChangesSubject().listen((product) {
-          add(CartEvent.onUpdateFavoriteProduct(product));
-        });
+      add(CartEvent.onUpdateFavoriteProduct(product));
+    });
     on<_Started>((event, emit) async => await _init(emit));
     on<_CartUpdated>((event, emit) => _updateCartItems(emit));
     on<_IncreaseProduct>((event, emit) => _increaseProduct(event.product));
@@ -64,11 +65,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     try {
       final oldProductIds = _getState().products.map((e) => e.id);
       final cartItems = _cartInteractor.getCartItems();
+      final cartProductIds = cartItems.keys;
       final newProductIds =
           cartItems.keys.where((e) => !oldProductIds.contains(e)).toList(growable: false);
 
       final newProducts = await _productsInteractor.getProductsByIds(newProductIds);
-      final products = _getState().products + newProducts;
+      final products = (_getState().products + newProducts)
+          .where((e) => cartProductIds.contains(e.id))
+          .toList(growable: false);
       final cartPrice = cartItems.entries
           .map((entry) => _getProductPrice(products, entry.key, entry.value))
           .fold(0.0, (sum, price) => sum + price);
@@ -157,7 +161,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   CartViewState _getState() {
-    return (state is Ready) ? (state as Ready).data : CartViewState(currency: _constants.currency, minOrderPrice: _constants.minOrderPrice);
+    return (state is Ready)
+        ? (state as Ready).data
+        : CartViewState(currency: _constants.currency, minOrderPrice: _constants.minOrderPrice);
   }
 
   @override

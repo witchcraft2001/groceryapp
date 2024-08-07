@@ -126,20 +126,33 @@ class _CartListLoaded extends StatelessWidget {
                       },
                       separatorBuilder: (ctx, index) =>
                           Divider(color: context.appTheme?.colors.divider),
-                    )
+                    ),
+                    SliverFillRemaining(
+                      hasScrollBody: false,
+                      child: _CartPrice(
+                        currency: currency,
+                        cartPrice: cartPrice,
+                        cartPriceWithoutDiscount: cartPriceWithoutDiscount,
+                        discount: discount,
+                        deliveryPrice: deliveryPrice,
+                        totalPrice: totalPrice,
+                        isReadyToOrder: isReadyToOrder,
+                        minOrderPrice: minOrderPrice,
+                      ),
+                    ),
                   ],
                 ),
               ),
-              _CartPrice(
-                currency: currency,
-                cartPrice: cartPrice,
-                cartPriceWithoutDiscount: cartPriceWithoutDiscount,
-                discount: discount,
-                deliveryPrice: deliveryPrice,
-                totalPrice: totalPrice,
-                isReadyToOrder: isReadyToOrder,
-                minOrderPrice: minOrderPrice,
-              ),
+              // _CartPrice(
+              //   currency: currency,
+              //   cartPrice: cartPrice,
+              //   cartPriceWithoutDiscount: cartPriceWithoutDiscount,
+              //   discount: discount,
+              //   deliveryPrice: deliveryPrice,
+              //   totalPrice: totalPrice,
+              //   isReadyToOrder: isReadyToOrder,
+              //   minOrderPrice: minOrderPrice,
+              // ),
             ],
           );
   }
@@ -172,6 +185,7 @@ class _CartPrice extends StatelessWidget {
       padding: AppSizes.ph16v8,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Divider(
             color: context.appTheme?.colors.divider,
