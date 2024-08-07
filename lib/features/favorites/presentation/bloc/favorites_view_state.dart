@@ -12,6 +12,7 @@ class FavoritesViewState with _$FavoritesViewState {
     @Default(false) bool isLoading,
     @Default([]) List<Product> products,
     @Default({}) Map<int, int> cartQuantities,
+    @Default("") String currency,
     @Default(false) bool isError,
   }) = _FavoritesViewState;
 }

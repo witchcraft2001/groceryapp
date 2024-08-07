@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'favorites_view_state.dart';
+part of 'cart_view_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,36 +15,44 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$FavoritesViewState {
+mixin _$CartViewState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<Product> get products => throw _privateConstructorUsedError;
   Map<int, int> get cartQuantities => throw _privateConstructorUsedError;
+  double get cartPrice => throw _privateConstructorUsedError;
+  double get deliveryPrice => throw _privateConstructorUsedError;
+  double get totalPrice => throw _privateConstructorUsedError;
   String get currency => throw _privateConstructorUsedError;
+  bool get isReadyToOrder => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FavoritesViewStateCopyWith<FavoritesViewState> get copyWith =>
+  $CartViewStateCopyWith<CartViewState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FavoritesViewStateCopyWith<$Res> {
-  factory $FavoritesViewStateCopyWith(
-          FavoritesViewState value, $Res Function(FavoritesViewState) then) =
-      _$FavoritesViewStateCopyWithImpl<$Res, FavoritesViewState>;
+abstract class $CartViewStateCopyWith<$Res> {
+  factory $CartViewStateCopyWith(
+          CartViewState value, $Res Function(CartViewState) then) =
+      _$CartViewStateCopyWithImpl<$Res, CartViewState>;
   @useResult
   $Res call(
       {bool isLoading,
       List<Product> products,
       Map<int, int> cartQuantities,
+      double cartPrice,
+      double deliveryPrice,
+      double totalPrice,
       String currency,
+      bool isReadyToOrder,
       bool isError});
 }
 
 /// @nodoc
-class _$FavoritesViewStateCopyWithImpl<$Res, $Val extends FavoritesViewState>
-    implements $FavoritesViewStateCopyWith<$Res> {
-  _$FavoritesViewStateCopyWithImpl(this._value, this._then);
+class _$CartViewStateCopyWithImpl<$Res, $Val extends CartViewState>
+    implements $CartViewStateCopyWith<$Res> {
+  _$CartViewStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -57,7 +65,11 @@ class _$FavoritesViewStateCopyWithImpl<$Res, $Val extends FavoritesViewState>
     Object? isLoading = null,
     Object? products = null,
     Object? cartQuantities = null,
+    Object? cartPrice = null,
+    Object? deliveryPrice = null,
+    Object? totalPrice = null,
     Object? currency = null,
+    Object? isReadyToOrder = null,
     Object? isError = null,
   }) {
     return _then(_value.copyWith(
@@ -73,10 +85,26 @@ class _$FavoritesViewStateCopyWithImpl<$Res, $Val extends FavoritesViewState>
           ? _value.cartQuantities
           : cartQuantities // ignore: cast_nullable_to_non_nullable
               as Map<int, int>,
+      cartPrice: null == cartPrice
+          ? _value.cartPrice
+          : cartPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      deliveryPrice: null == deliveryPrice
+          ? _value.deliveryPrice
+          : deliveryPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalPrice: null == totalPrice
+          ? _value.totalPrice
+          : totalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
       currency: null == currency
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String,
+      isReadyToOrder: null == isReadyToOrder
+          ? _value.isReadyToOrder
+          : isReadyToOrder // ignore: cast_nullable_to_non_nullable
+              as bool,
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
@@ -86,27 +114,31 @@ class _$FavoritesViewStateCopyWithImpl<$Res, $Val extends FavoritesViewState>
 }
 
 /// @nodoc
-abstract class _$$FavoritesViewStateImplCopyWith<$Res>
-    implements $FavoritesViewStateCopyWith<$Res> {
-  factory _$$FavoritesViewStateImplCopyWith(_$FavoritesViewStateImpl value,
-          $Res Function(_$FavoritesViewStateImpl) then) =
-      __$$FavoritesViewStateImplCopyWithImpl<$Res>;
+abstract class _$$CartViewStateImplCopyWith<$Res>
+    implements $CartViewStateCopyWith<$Res> {
+  factory _$$CartViewStateImplCopyWith(
+          _$CartViewStateImpl value, $Res Function(_$CartViewStateImpl) then) =
+      __$$CartViewStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {bool isLoading,
       List<Product> products,
       Map<int, int> cartQuantities,
+      double cartPrice,
+      double deliveryPrice,
+      double totalPrice,
       String currency,
+      bool isReadyToOrder,
       bool isError});
 }
 
 /// @nodoc
-class __$$FavoritesViewStateImplCopyWithImpl<$Res>
-    extends _$FavoritesViewStateCopyWithImpl<$Res, _$FavoritesViewStateImpl>
-    implements _$$FavoritesViewStateImplCopyWith<$Res> {
-  __$$FavoritesViewStateImplCopyWithImpl(_$FavoritesViewStateImpl _value,
-      $Res Function(_$FavoritesViewStateImpl) _then)
+class __$$CartViewStateImplCopyWithImpl<$Res>
+    extends _$CartViewStateCopyWithImpl<$Res, _$CartViewStateImpl>
+    implements _$$CartViewStateImplCopyWith<$Res> {
+  __$$CartViewStateImplCopyWithImpl(
+      _$CartViewStateImpl _value, $Res Function(_$CartViewStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,10 +147,14 @@ class __$$FavoritesViewStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? products = null,
     Object? cartQuantities = null,
+    Object? cartPrice = null,
+    Object? deliveryPrice = null,
+    Object? totalPrice = null,
     Object? currency = null,
+    Object? isReadyToOrder = null,
     Object? isError = null,
   }) {
-    return _then(_$FavoritesViewStateImpl(
+    return _then(_$CartViewStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -131,10 +167,26 @@ class __$$FavoritesViewStateImplCopyWithImpl<$Res>
           ? _value._cartQuantities
           : cartQuantities // ignore: cast_nullable_to_non_nullable
               as Map<int, int>,
+      cartPrice: null == cartPrice
+          ? _value.cartPrice
+          : cartPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      deliveryPrice: null == deliveryPrice
+          ? _value.deliveryPrice
+          : deliveryPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalPrice: null == totalPrice
+          ? _value.totalPrice
+          : totalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
       currency: null == currency
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String,
+      isReadyToOrder: null == isReadyToOrder
+          ? _value.isReadyToOrder
+          : isReadyToOrder // ignore: cast_nullable_to_non_nullable
+              as bool,
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
@@ -145,12 +197,16 @@ class __$$FavoritesViewStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FavoritesViewStateImpl implements _FavoritesViewState {
-  const _$FavoritesViewStateImpl(
+class _$CartViewStateImpl implements _CartViewState {
+  const _$CartViewStateImpl(
       {this.isLoading = false,
       final List<Product> products = const [],
       final Map<int, int> cartQuantities = const {},
+      this.cartPrice = 0.0,
+      this.deliveryPrice = 0.0,
+      this.totalPrice = 0.0,
       this.currency = "",
+      this.isReadyToOrder = false,
       this.isError = false})
       : _products = products,
         _cartQuantities = cartQuantities;
@@ -178,28 +234,48 @@ class _$FavoritesViewStateImpl implements _FavoritesViewState {
 
   @override
   @JsonKey()
+  final double cartPrice;
+  @override
+  @JsonKey()
+  final double deliveryPrice;
+  @override
+  @JsonKey()
+  final double totalPrice;
+  @override
+  @JsonKey()
   final String currency;
+  @override
+  @JsonKey()
+  final bool isReadyToOrder;
   @override
   @JsonKey()
   final bool isError;
 
   @override
   String toString() {
-    return 'FavoritesViewState(isLoading: $isLoading, products: $products, cartQuantities: $cartQuantities, currency: $currency, isError: $isError)';
+    return 'CartViewState(isLoading: $isLoading, products: $products, cartQuantities: $cartQuantities, cartPrice: $cartPrice, deliveryPrice: $deliveryPrice, totalPrice: $totalPrice, currency: $currency, isReadyToOrder: $isReadyToOrder, isError: $isError)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FavoritesViewStateImpl &&
+            other is _$CartViewStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             const DeepCollectionEquality().equals(other._products, _products) &&
             const DeepCollectionEquality()
                 .equals(other._cartQuantities, _cartQuantities) &&
+            (identical(other.cartPrice, cartPrice) ||
+                other.cartPrice == cartPrice) &&
+            (identical(other.deliveryPrice, deliveryPrice) ||
+                other.deliveryPrice == deliveryPrice) &&
+            (identical(other.totalPrice, totalPrice) ||
+                other.totalPrice == totalPrice) &&
             (identical(other.currency, currency) ||
                 other.currency == currency) &&
+            (identical(other.isReadyToOrder, isReadyToOrder) ||
+                other.isReadyToOrder == isReadyToOrder) &&
             (identical(other.isError, isError) || other.isError == isError));
   }
 
@@ -209,24 +285,31 @@ class _$FavoritesViewStateImpl implements _FavoritesViewState {
       isLoading,
       const DeepCollectionEquality().hash(_products),
       const DeepCollectionEquality().hash(_cartQuantities),
+      cartPrice,
+      deliveryPrice,
+      totalPrice,
       currency,
+      isReadyToOrder,
       isError);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FavoritesViewStateImplCopyWith<_$FavoritesViewStateImpl> get copyWith =>
-      __$$FavoritesViewStateImplCopyWithImpl<_$FavoritesViewStateImpl>(
-          this, _$identity);
+  _$$CartViewStateImplCopyWith<_$CartViewStateImpl> get copyWith =>
+      __$$CartViewStateImplCopyWithImpl<_$CartViewStateImpl>(this, _$identity);
 }
 
-abstract class _FavoritesViewState implements FavoritesViewState {
-  const factory _FavoritesViewState(
+abstract class _CartViewState implements CartViewState {
+  const factory _CartViewState(
       {final bool isLoading,
       final List<Product> products,
       final Map<int, int> cartQuantities,
+      final double cartPrice,
+      final double deliveryPrice,
+      final double totalPrice,
       final String currency,
-      final bool isError}) = _$FavoritesViewStateImpl;
+      final bool isReadyToOrder,
+      final bool isError}) = _$CartViewStateImpl;
 
   @override
   bool get isLoading;
@@ -235,11 +318,19 @@ abstract class _FavoritesViewState implements FavoritesViewState {
   @override
   Map<int, int> get cartQuantities;
   @override
+  double get cartPrice;
+  @override
+  double get deliveryPrice;
+  @override
+  double get totalPrice;
+  @override
   String get currency;
+  @override
+  bool get isReadyToOrder;
   @override
   bool get isError;
   @override
   @JsonKey(ignore: true)
-  _$$FavoritesViewStateImplCopyWith<_$FavoritesViewStateImpl> get copyWith =>
+  _$$CartViewStateImplCopyWith<_$CartViewStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

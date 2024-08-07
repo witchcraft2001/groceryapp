@@ -3,6 +3,7 @@ part of '../favorites_screen.dart';
 class _FavoriteItem extends StatelessWidget {
   final Product item;
   final int quantity;
+  final String currency;
   final EdgeInsetsGeometry? padding;
   final ValueChanged<Product> onTap;
   final ValueChanged<Product> onRemoveFavoriteTap;
@@ -17,6 +18,7 @@ class _FavoriteItem extends StatelessWidget {
     required this.onIncreaseTap,
     required this.onDecreaseTap,
     this.padding,
+    required this.currency,
   });
 
   @override
@@ -113,6 +115,7 @@ class _FavoriteItem extends StatelessWidget {
                         PriceInfo(
                           item: item,
                           quantity: quantity,
+                          currency: currency,
                         ),
                         SizedBox(
                           width: AppSizes.productItemWidth,

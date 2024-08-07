@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
+import '../../../../core/data/constants.dart';
 import '../../../../core/data/service/log_service.dart';
 import '../../../../core/domain/entity/product.dart';
 import '../../../../core/domain/interactor/cart_interactor.dart';
@@ -23,6 +24,7 @@ part 'favorites_state.dart';
 class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   late StreamSubscription<int> _favoritesSubscription;
   late StreamSubscription<Map<int, int>> _cartSubscription;
+  final Constants _constants;
   final LogService _logService;
   final FavoritesInteractor _favoritesInteractor;
   final CartInteractor _cartInteractor;
@@ -31,6 +33,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
     this._favoritesInteractor,
     this._logService,
     this._cartInteractor,
+    this._constants,
   ) : super(const FavoritesState.initial()) {
     _cartSubscription = _cartInteractor.getCartSubject().listen((cart) {
       add(FavoritesEvent.cartUpdated(cart));
@@ -65,7 +68,14 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   }
 
   Future<void> _init(Emitter<FavoritesState> emit) async {
-    _updateState(_getState().copyWith(isLoading: true, products: []), emit);
+    _updateState(
+      _getState().copyWith(
+        isLoading: true,
+        products: [],
+        currency: _constants.currency,
+      ),
+      emit,
+    );
     try {
       final result = await _favoritesInteractor.getFavorites();
       _updateState(
@@ -93,7 +103,9 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   }
 
   FavoritesViewState _getState() {
-    return (state is Ready) ? (state as Ready).data : const FavoritesViewState();
+    return (state is Ready)
+        ? (state as Ready).data
+        : FavoritesViewState(currency: _constants.currency);
   }
 
   @override

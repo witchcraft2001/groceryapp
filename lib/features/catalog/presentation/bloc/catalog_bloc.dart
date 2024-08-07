@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
+import 'package:grocery_app/core/data/constants.dart';
 import 'package:grocery_app/core/domain/entity/category.dart';
 import 'package:grocery_app/core/domain/entity/product.dart';
 import 'package:grocery_app/core/domain/interactor/cart_interactor.dart';
@@ -24,6 +25,7 @@ part 'catalog_state.dart';
 
 @injectable
 class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
+  final Constants _constants;
   final CategoriesInteractor _categoriesInteractor;
   final ProductsInteractor _productsInteractor;
   final CartInteractor _cartInteractor;
@@ -38,6 +40,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     this._productsInteractor,
     this._cartInteractor,
     this._favoritesInteractor,
+    this._constants,
   ) : super(const CatalogState.initial()) {
     _cartSubscription = _cartInteractor.getCartSubject().listen((cart) {
       add(CatalogEvent.cartUpdated(cart));
@@ -89,7 +92,10 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   }
 
   Future<void> _init(Emitter<CatalogState> emit) async {
-    _updateState(_getState().copyWith(isCategoriesLoading: true, isProductsLoading: true), emit);
+    _updateState(
+        _getState().copyWith(
+            isCategoriesLoading: true, isProductsLoading: true, currency: _constants.currency),
+        emit);
     try {
       final result = await _categoriesInteractor.getItems();
       final selected = result.first;
@@ -132,7 +138,6 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   }
 
   void _updateCart(Map<int, int> cart, Emitter<CatalogState> emit) {
-    final oldstate = _getState();
     _updateState(
       _getState().copyWith(cartQuantities: cart.map((key, value) => MapEntry(key, value))),
       emit,
@@ -144,7 +149,9 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   }
 
   CatalogViewState _getState() {
-    return (state is Ready) ? (state as Ready).data : const CatalogViewState();
+    return (state is Ready)
+        ? (state as Ready).data
+        : CatalogViewState(currency: _constants.currency);
   }
 
   @override

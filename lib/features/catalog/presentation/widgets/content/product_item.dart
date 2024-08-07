@@ -20,6 +20,7 @@ import '../../../../../core/ui/common/add_product_to_cart_button.dart';
 class ProductItem extends StatelessWidget {
   final Product item;
   final int quantity;
+  final String currency;
   final EdgeInsetsGeometry? padding;
   final ValueChanged<Product> onIncreaseTap;
   final ValueChanged<Product> onDecreaseTap;
@@ -33,6 +34,7 @@ class ProductItem extends StatelessWidget {
     required this.onIncreaseTap,
     required this.onDecreaseTap,
     required this.onFavoriteTap,
+    required this.currency,
   });
 
   @override
@@ -92,6 +94,7 @@ class ProductItem extends StatelessWidget {
               PriceInfo(
                 item: item,
                 quantity: quantity,
+                currency: currency,
                 padding: AppSizes.ph8,
               ),
               const SizedBox(

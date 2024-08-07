@@ -22,6 +22,7 @@ mixin _$CatalogViewState {
   List<Product> get products => throw _privateConstructorUsedError;
   Map<int, int> get cartQuantities => throw _privateConstructorUsedError;
   Category? get selectedCategory => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -42,6 +43,7 @@ abstract class $CatalogViewStateCopyWith<$Res> {
       List<Product> products,
       Map<int, int> cartQuantities,
       Category? selectedCategory,
+      String currency,
       bool isError});
 
   $CategoryCopyWith<$Res>? get selectedCategory;
@@ -66,6 +68,7 @@ class _$CatalogViewStateCopyWithImpl<$Res, $Val extends CatalogViewState>
     Object? products = null,
     Object? cartQuantities = null,
     Object? selectedCategory = freezed,
+    Object? currency = null,
     Object? isError = null,
   }) {
     return _then(_value.copyWith(
@@ -93,6 +96,10 @@ class _$CatalogViewStateCopyWithImpl<$Res, $Val extends CatalogViewState>
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
               as Category?,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
@@ -128,6 +135,7 @@ abstract class _$$CatalogViewStateImplCopyWith<$Res>
       List<Product> products,
       Map<int, int> cartQuantities,
       Category? selectedCategory,
+      String currency,
       bool isError});
 
   @override
@@ -151,6 +159,7 @@ class __$$CatalogViewStateImplCopyWithImpl<$Res>
     Object? products = null,
     Object? cartQuantities = null,
     Object? selectedCategory = freezed,
+    Object? currency = null,
     Object? isError = null,
   }) {
     return _then(_$CatalogViewStateImpl(
@@ -178,6 +187,10 @@ class __$$CatalogViewStateImplCopyWithImpl<$Res>
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
               as Category?,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
@@ -196,6 +209,7 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
       final List<Product> products = const [],
       final Map<int, int> cartQuantities = const {},
       this.selectedCategory = null,
+      this.currency = "",
       this.isError = false})
       : _categories = categories,
         _products = products,
@@ -239,11 +253,14 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
   final Category? selectedCategory;
   @override
   @JsonKey()
+  final String currency;
+  @override
+  @JsonKey()
   final bool isError;
 
   @override
   String toString() {
-    return 'CatalogViewState(isCategoriesLoading: $isCategoriesLoading, isProductsLoading: $isProductsLoading, categories: $categories, products: $products, cartQuantities: $cartQuantities, selectedCategory: $selectedCategory, isError: $isError)';
+    return 'CatalogViewState(isCategoriesLoading: $isCategoriesLoading, isProductsLoading: $isProductsLoading, categories: $categories, products: $products, cartQuantities: $cartQuantities, selectedCategory: $selectedCategory, currency: $currency, isError: $isError)';
   }
 
   @override
@@ -262,6 +279,8 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
                 .equals(other._cartQuantities, _cartQuantities) &&
             (identical(other.selectedCategory, selectedCategory) ||
                 other.selectedCategory == selectedCategory) &&
+            (identical(other.currency, currency) ||
+                other.currency == currency) &&
             (identical(other.isError, isError) || other.isError == isError));
   }
 
@@ -274,6 +293,7 @@ class _$CatalogViewStateImpl implements _CatalogViewState {
       const DeepCollectionEquality().hash(_products),
       const DeepCollectionEquality().hash(_cartQuantities),
       selectedCategory,
+      currency,
       isError);
 
   @JsonKey(ignore: true)
@@ -292,6 +312,7 @@ abstract class _CatalogViewState implements CatalogViewState {
       final List<Product> products,
       final Map<int, int> cartQuantities,
       final Category? selectedCategory,
+      final String currency,
       final bool isError}) = _$CatalogViewStateImpl;
 
   @override
@@ -306,6 +327,8 @@ abstract class _CatalogViewState implements CatalogViewState {
   Map<int, int> get cartQuantities;
   @override
   Category? get selectedCategory;
+  @override
+  String get currency;
   @override
   bool get isError;
   @override

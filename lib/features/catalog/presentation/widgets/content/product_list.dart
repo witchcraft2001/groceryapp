@@ -4,6 +4,7 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
   final bool isLoading;
   final List<Product> items;
   final Map<int, int> quantities;
+  final String currency;
   final ValueChanged<Product> onIncreaseTap;
   final ValueChanged<Product> onDecreaseTap;
   final ValueChanged<Product> onFavoriteTap;
@@ -15,6 +16,7 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
     required this.onIncreaseTap,
     required this.onDecreaseTap,
     required this.onFavoriteTap,
+    required this.currency,
   });
 
   @override
@@ -33,6 +35,7 @@ class _ProductList extends StatelessWidget with ProductItemCrossAxisCountCalcula
               return ProductItem(
                 item: item,
                 quantity: quantities[item.id] ?? 0,
+                currency: currency,
                 padding: AppSizes.p4,
                 onIncreaseTap: onIncreaseTap,
                 onDecreaseTap: onDecreaseTap,

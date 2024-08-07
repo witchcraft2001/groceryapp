@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:grocery_app/core/data/variables.dart';
 import 'package:grocery_app/core/domain/entity/product.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'app_sizes.dart';
@@ -11,13 +10,14 @@ import 'price_with_discount.dart';
 class PriceInfo extends StatelessWidget {
   final Product item;
   final int quantity;
+  final String currency;
   final EdgeInsetsGeometry? padding;
 
   const PriceInfo({
     super.key,
     required this.item,
     required this.quantity,
-    this.padding,
+    this.padding, required this.currency,
   });
 
   @override

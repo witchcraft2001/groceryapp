@@ -19,6 +19,7 @@ import 'package:grocery_app/features/catalog/presentation/bloc/catalog_view_stat
 import 'package:grocery_app/features/catalog/presentation/mixin/product_item_cross_axis_count_calculator.dart';
 import 'package:grocery_app/features/catalog/presentation/widgets/content/product_item.dart';
 import '../../../../core/ui/common/grocery_app_bar.dart';
+import '../../../../generated/l10n.dart';
 import '../../../../injection.dart';
 
 part './content/categories_shimmer.dart';
@@ -58,9 +59,9 @@ class _CatalogScreenInternal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const GroceryAppBar(
+        GroceryAppBar(
           elevation: 0.0,
-          title: 'Something',
+          title: state.selectedCategory?.name ?? S.current.catalog,
         ),
         Flexible(
           child: Row(
@@ -82,6 +83,7 @@ class _CatalogScreenInternal extends StatelessWidget {
                   isLoading: state.isProductsLoading,
                   items: state.products,
                   quantities: state.cartQuantities,
+                  currency: state.currency,
                   onIncreaseTap: (product) =>
                       context.bloc<CatalogBloc>().add(CatalogEvent.onIncreaseProduct(product)),
                   onDecreaseTap: (product) =>

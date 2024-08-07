@@ -10,11 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grocery_app/core/extensions/context_extensions.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_assets.dart';
-import 'package:grocery_app/core/ui/common/app_card.dart';
 import 'package:grocery_app/core/ui/common/app_decorations.dart';
 import 'package:grocery_app/core/ui/common/app_icon_button.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
-import 'package:grocery_app/core/ui/common/svg_icon_button.dart';
 import 'package:grocery_app/features/favorites/presentation/bloc/favorites_bloc.dart';
 import 'package:grocery_app/features/favorites/presentation/bloc/favorites_view_state.dart';
 import 'package:grocery_app/injection.dart';
@@ -67,6 +65,7 @@ class _FavoritesScreenInternal extends StatelessWidget {
             items: state.products,
             onTap: (_) {},
             quantities: state.cartQuantities,
+            currency: state.currency,
             onIncreaseTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onIncreaseProduct(product)),
             onDecreaseTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onDecreaseProduct(product)),
             onRemoveFavoriteTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onRemoveFavoriteProduct(product)),

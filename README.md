@@ -1,6 +1,10 @@
-# grocery_app
+# GroceryApp
 
-A new Flutter project.
+An application for ordering products in an online grocery store.
+
+![Catalog](./screenshots/Screenshot_20240807_161647.png "Product catalog")
+
+![Favorites](./screenshots/Screenshot_20240807_161647.png "Favorites")
 
 ## Generate files
 ### Injections,  `json_serializable`-models and `freezed`-states:

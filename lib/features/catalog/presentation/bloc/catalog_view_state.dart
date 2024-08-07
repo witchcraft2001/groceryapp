@@ -16,6 +16,7 @@ class CatalogViewState with _$CatalogViewState {
     @Default([]) List<Product> products,
     @Default({}) Map<int, int> cartQuantities,
     @Default(null) Category? selectedCategory,
+    @Default("") String currency,
     @Default(false) bool isError,
   }) = _CatalogViewState;
 }

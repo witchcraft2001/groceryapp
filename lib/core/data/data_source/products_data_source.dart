@@ -10,7 +10,7 @@ import 'package:grocery_app/core/extensions/iterable_extensions.dart';
 
 @lazySingleton
 class ProductsDataSource {
-  static List<ProductData> items = [
+  static final List<ProductData> _items = [
     const ProductData(
       id: 1,
       categoryId: 3,
@@ -144,18 +144,24 @@ class ProductsDataSource {
     ),
   ];
 
+  Future<List<ProductData>> getProductsByIds(List<int> ids) async {
+    // Just for create async task
+    return await Future.microtask(
+        () => _items.where((e) => ids.contains(e.id)).toList(growable: false));
+  }
+
   Future<List<ProductData>> getProductsByCategory(int categoryId) async {
     // Just for create async task
     return await Future.microtask(() => _getProducts(categoryId));
   }
 
   Future<ProductData> addFavoriteProduct(int productId) async {
-    final product = items.firstWhereOrNull((item) => item.id == productId);
+    final product = _items.firstWhereOrNull((item) => item.id == productId);
     if (product != null) {
-      final index = items.indexOf(product);
+      final index = _items.indexOf(product);
       final favoriteProductData = product.copyWith(isFavorite: true);
-      items.removeAt(index);
-      items.insert(index, favoriteProductData);
+      _items.removeAt(index);
+      _items.insert(index, favoriteProductData);
       // Just for create async task
       return await Future.microtask(() => favoriteProductData);
     } else {
@@ -164,12 +170,12 @@ class ProductsDataSource {
   }
 
   Future<ProductData> removeFavoriteProduct(int productId) async {
-    final product = items.firstWhereOrNull((item) => item.id == productId);
+    final product = _items.firstWhereOrNull((item) => item.id == productId);
     if (product != null) {
-      final index = items.indexOf(product);
+      final index = _items.indexOf(product);
       final justProductData = product.copyWith(isFavorite: false);
-      items.removeAt(index);
-      items.insert(index, justProductData);
+      _items.removeAt(index);
+      _items.insert(index, justProductData);
       // Just for create async task
       return await Future.microtask(() => justProductData);
     } else {
@@ -180,9 +186,9 @@ class ProductsDataSource {
   Future<List<ProductData>> getFavorites() async {
     // Just for create async task
     return await Future.microtask(
-        () => items.where((item) => item.isFavorite == true).toList(growable: false));
+        () => _items.where((item) => item.isFavorite == true).toList(growable: false));
   }
 
   List<ProductData> _getProducts(int categoryId) =>
-      items.where((e) => e.categoryId == categoryId).toList(growable: false);
+      _items.where((e) => e.categoryId == categoryId).toList(growable: false);
 }

@@ -4,6 +4,7 @@ class _FavoriteList extends StatelessWidget {
   final bool isLoading;
   final List<Product> items;
   final Map<int, int> quantities;
+  final String currency;
   final ValueChanged<Product> onIncreaseTap;
   final ValueChanged<Product> onDecreaseTap;
   final ValueChanged<Product> onRemoveFavoriteTap;
@@ -17,6 +18,7 @@ class _FavoriteList extends StatelessWidget {
     required this.onIncreaseTap,
     required this.onDecreaseTap,
     required this.onRemoveFavoriteTap,
+    required this.currency,
   });
 
   @override
@@ -31,12 +33,16 @@ class _FavoriteList extends StatelessWidget {
               return _FavoriteItem(
                 item: item,
                 onTap: onTap,
+                currency: currency,
                 padding: AppSizes.ph16,
                 onRemoveFavoriteTap: onRemoveFavoriteTap,
                 quantity: quantities[item.id] ?? 0,
                 onIncreaseTap: onIncreaseTap,
                 onDecreaseTap: onDecreaseTap,
               );
-            }, separatorBuilder: (BuildContext context, int index) => Divider(color: context.appTheme?.colors.divider),);
+            },
+            separatorBuilder: (BuildContext context, int index) =>
+                Divider(color: context.appTheme?.colors.divider),
+          );
   }
 }
