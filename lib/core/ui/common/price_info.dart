@@ -1,8 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:grocery_app/core/data/variables.dart';
 import 'package:grocery_app/core/domain/entity/product.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
-
 import 'app_sizes.dart';
 import 'price_with_discount.dart';
 

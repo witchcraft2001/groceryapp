@@ -16,5 +16,5 @@ class CartInteractor {
 
   int decreaseProductCount(Product product) => _cartService.decreaseProduct(product);
 
-  Subject<Map<Product, int>> getCartSubject() => _cartService.cartSubject;
+  Subject<Map<int, int>> getCartSubject() => _cartService.cartSubject;
 }

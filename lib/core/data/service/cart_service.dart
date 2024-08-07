@@ -7,26 +7,26 @@ import 'package:grocery_app/core/domain/entity/product.dart';
 
 @lazySingleton
 class CartService {
-  final Map<Product, int> items = {};
-  final BehaviorSubject<Map<Product, int>> _cartSubject = BehaviorSubject();
+  final Map<int, int> items = {};
+  final BehaviorSubject<Map<int, int>> _cartSubject = BehaviorSubject();
 
-  Subject<Map<Product, int>> get cartSubject => _cartSubject;
+  Subject<Map<int, int>> get cartSubject => _cartSubject;
 
   int increaseProduct(Product product) {
-    final newQuantity = (items[product] ?? 0) + 1;
-    items[product] = newQuantity;
+    final newQuantity = (items[product.id] ?? 0) + 1;
+    items[product.id] = newQuantity;
     _cartSubject.add(items);
     return newQuantity;
   }
 
   int decreaseProduct(Product product) {
-    final newQuantity = (items[product] ?? 0) - 1;
+    final newQuantity = (items[product.id] ?? 0) - 1;
     if (newQuantity <= 0) {
-      items.remove(product);
+      items.remove(product.id);
       _cartSubject.add(items);
       return 0;
     }
-    items[product] = newQuantity;
+    items[product.id] = newQuantity;
     _cartSubject.add(items);
     return newQuantity;
   }

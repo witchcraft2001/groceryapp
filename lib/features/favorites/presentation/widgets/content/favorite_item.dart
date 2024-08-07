@@ -75,7 +75,7 @@ class _FavoriteItem extends StatelessWidget {
                           AppIconButton(
                             icon: AppAssets.iconClose,
                             foreground: context.appTheme?.colors.brAndIcons,
-                            onTap: () {},
+                            onTap: () => onRemoveFavoriteTap(item),
                           )
                         ],
                       ),

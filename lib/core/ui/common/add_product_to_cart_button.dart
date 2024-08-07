@@ -1,8 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
+
+// Project imports:
 import 'package:grocery_app/core/extensions/double_extensions.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
-
 import '../../../generated/l10n.dart';
 import 'app_assets.dart';
 import 'app_decorations.dart';

@@ -1,10 +1,12 @@
 // Flutter imports:
 
+// Flutter imports:
+import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
 
-// Flutter imports:
-import 'package:flutter/material.dart';
+// Project imports:
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_assets.dart';
 import 'package:grocery_app/core/ui/common/app_card.dart';
@@ -12,7 +14,6 @@ import 'package:grocery_app/core/ui/common/app_decorations.dart';
 import 'package:grocery_app/core/ui/common/app_icon_button.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
 import 'package:grocery_app/core/ui/common/price_info.dart';
-
 import '../../../../../core/domain/entity/product.dart';
 import '../../../../../core/ui/common/add_product_to_cart_button.dart';
 

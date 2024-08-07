@@ -29,7 +29,8 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   final CartInteractor _cartInteractor;
   final FavoritesInteractor _favoritesInteractor;
   final LogService _logService;
-  late StreamSubscription<Map<Product, int>> _cartSubscription;
+  late StreamSubscription<Map<int, int>> _cartSubscription;
+  late StreamSubscription<Product> _favoriteChangesSubscription;
 
   CatalogBloc(
     this._categoriesInteractor,
@@ -41,12 +42,17 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     _cartSubscription = _cartInteractor.getCartSubject().listen((cart) {
       add(CatalogEvent.cartUpdated(cart));
     });
+    _favoriteChangesSubscription =
+        _favoritesInteractor.getFavoriteChangesSubject().listen((product) {
+      add(CatalogEvent.onUpdateFavoriteProduct(product));
+    });
     on<_Started>((event, emit) async => await _init(emit));
     on<_CategorySelected>((event, emit) async => await _loadCategory(event.category, emit));
     on<_CartUpdated>((event, emit) => _updateCart(event.cart, emit));
     on<_IncreaseProduct>((event, emit) => _increaseProduct(event.product));
     on<_DecreaseProduct>((event, emit) => _decreaseProduct(event.product));
     on<_onToggleFavoriteProduct>((event, emit) async => await _toggleFavorite(event.product, emit));
+    on<_onUpdateFavoriteProduct>((event, emit) async => await _updateFavorite(event.product, emit));
   }
 
   void _increaseProduct(Product product) {
@@ -55,6 +61,16 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
 
   void _decreaseProduct(Product product) {
     _cartInteractor.decreaseProductCount(product);
+  }
+
+  Future<void> _updateFavorite(Product product, Emitter<CatalogState> emit) async {
+    final products = _getState().products;
+    if (products.any((e) => e.id == product.id)) {
+      final newState = _getState().copyWith(
+        products: products.map((e) => e.id == product.id ? product : e).toList(growable: false),
+      );
+      _updateState(newState, emit);
+    }
   }
 
   Future<void> _toggleFavorite(Product product, Emitter<CatalogState> emit) async {
@@ -115,9 +131,10 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     }
   }
 
-  void _updateCart(Map<Product, int> cart, Emitter<CatalogState> emit) {
+  void _updateCart(Map<int, int> cart, Emitter<CatalogState> emit) {
+    final oldstate = _getState();
     _updateState(
-      _getState().copyWith(cartQuantities: cart.map((key, value) => MapEntry(key.id, value))),
+      _getState().copyWith(cartQuantities: cart.map((key, value) => MapEntry(key, value))),
       emit,
     );
   }
@@ -133,6 +150,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   @override
   Future<void> close() async {
     super.close();
+    _favoriteChangesSubscription.cancel();
     _cartSubscription.cancel();
   }
 }

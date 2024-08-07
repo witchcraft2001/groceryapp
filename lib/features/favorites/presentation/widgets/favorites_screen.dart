@@ -1,7 +1,13 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_rating_bar/custom_rating_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
+import 'package:grocery_app/core/extensions/context_extensions.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_assets.dart';
 import 'package:grocery_app/core/ui/common/app_card.dart';
@@ -12,9 +18,10 @@ import 'package:grocery_app/core/ui/common/svg_icon_button.dart';
 import 'package:grocery_app/features/favorites/presentation/bloc/favorites_bloc.dart';
 import 'package:grocery_app/features/favorites/presentation/bloc/favorites_view_state.dart';
 import 'package:grocery_app/injection.dart';
-
 import '../../../../core/domain/entity/product.dart';
 import '../../../../core/ui/common/add_product_to_cart_button.dart';
+import '../../../../core/ui/common/app_shimmer.dart';
+import '../../../../core/ui/common/app_shimmer_content.dart';
 import '../../../../core/ui/common/grocery_app_bar.dart';
 import '../../../../core/ui/common/price_info.dart';
 
@@ -60,9 +67,9 @@ class _FavoritesScreenInternal extends StatelessWidget {
             items: state.products,
             onTap: (_) {},
             quantities: state.cartQuantities,
-            onIncreaseTap: (Product value) {},
-            onDecreaseTap: (Product value) {},
-            onRemoveFavoriteTap: (Product value) {},
+            onIncreaseTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onIncreaseProduct(product)),
+            onDecreaseTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onDecreaseProduct(product)),
+            onRemoveFavoriteTap: (product) => context.bloc<FavoritesBloc>().add(FavoritesEvent.onRemoveFavoriteProduct(product)),
           ),
         )
       ],

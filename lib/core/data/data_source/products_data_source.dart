@@ -1,9 +1,12 @@
 // Package imports:
+
+// Package imports:
+import 'package:injectable/injectable.dart';
+
 // Project imports:
 import 'package:grocery_app/core/data/model/product_data.dart';
 import 'package:grocery_app/core/exception/data_source_exception.dart';
 import 'package:grocery_app/core/extensions/iterable_extensions.dart';
-import 'package:injectable/injectable.dart';
 
 @lazySingleton
 class ProductsDataSource {

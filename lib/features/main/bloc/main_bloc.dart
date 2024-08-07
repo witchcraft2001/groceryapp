@@ -7,7 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
-import 'package:grocery_app/core/domain/entity/product.dart';
 import 'package:grocery_app/core/domain/interactor/cart_interactor.dart';
 import 'package:grocery_app/core/domain/interactor/favorites_interactor.dart';
 
@@ -19,7 +18,7 @@ part 'main_state.dart';
 
 @lazySingleton
 class MainBloc extends Bloc<MainEvent, MainState> {
-  late StreamSubscription<Map<Product, int>> _cartSubscription;
+  late StreamSubscription<Map<int, int>> _cartSubscription;
   late StreamSubscription<int> _favoritesSubscription;
   final FavoritesInteractor _favoritesInteractor;
   final CartInteractor _cartInteractor;

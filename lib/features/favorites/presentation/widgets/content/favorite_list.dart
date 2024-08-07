@@ -32,7 +32,7 @@ class _FavoriteList extends StatelessWidget {
                 item: item,
                 onTap: onTap,
                 padding: AppSizes.ph16,
-                onRemoveFavoriteTap: (value) {},
+                onRemoveFavoriteTap: onRemoveFavoriteTap,
                 quantity: quantities[item.id] ?? 0,
                 onIncreaseTap: onIncreaseTap,
                 onDecreaseTap: onDecreaseTap,

@@ -15,6 +15,7 @@ class FavoritesInteractor {
   );
 
   Subject<int> getFavoritesCountSubject() => _repository.favoritesSubject;
+  Subject<Product> getFavoriteChangesSubject() => _repository.favoriteChangesSubject;
 
   Future<Product> addFavoriteProduct(int productId) => Future.delayed(
         const Duration(milliseconds: 300),
