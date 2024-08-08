@@ -24,6 +24,7 @@ import '../../../../core/util/product_price_calculator.dart';
 import '../../../../generated/l10n.dart';
 import '../bloc/cart_bloc.dart';
 import '../bloc/cart_view_state.dart';
+import 'content/recommendation_list.dart';
 
 part './content/cart_item.dart';
 
@@ -73,6 +74,8 @@ class _CartScreenInternal extends StatelessWidget {
             totalPrice: state.totalPrice,
             isReadyToOrder: state.isReadyToOrder,
             minOrderPrice: state.minOrderPrice,
+            isRecommendationsLoading: state.isRecommendationsLoading,
+            recommendedProducts: state.recommendedProducts,
             onIncreaseTap: (product) =>
                 context.bloc<CartBloc>().add(CartEvent.onIncreaseProduct(product)),
             onDecreaseTap: (product) =>

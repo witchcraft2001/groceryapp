@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CartViewState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isRecommendationsLoading => throw _privateConstructorUsedError;
   List<Product> get products => throw _privateConstructorUsedError;
+  List<Product> get recommendedProducts => throw _privateConstructorUsedError;
   Map<int, int> get cartQuantities => throw _privateConstructorUsedError;
   double get cartPrice => throw _privateConstructorUsedError;
   double get cartPriceWithoutDiscount => throw _privateConstructorUsedError;
@@ -42,7 +44,9 @@ abstract class $CartViewStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool isRecommendationsLoading,
       List<Product> products,
+      List<Product> recommendedProducts,
       Map<int, int> cartQuantities,
       double cartPrice,
       double cartPriceWithoutDiscount,
@@ -69,7 +73,9 @@ class _$CartViewStateCopyWithImpl<$Res, $Val extends CartViewState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isRecommendationsLoading = null,
     Object? products = null,
+    Object? recommendedProducts = null,
     Object? cartQuantities = null,
     Object? cartPrice = null,
     Object? cartPriceWithoutDiscount = null,
@@ -86,9 +92,17 @@ class _$CartViewStateCopyWithImpl<$Res, $Val extends CartViewState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRecommendationsLoading: null == isRecommendationsLoading
+          ? _value.isRecommendationsLoading
+          : isRecommendationsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+      recommendedProducts: null == recommendedProducts
+          ? _value.recommendedProducts
+          : recommendedProducts // ignore: cast_nullable_to_non_nullable
               as List<Product>,
       cartQuantities: null == cartQuantities
           ? _value.cartQuantities
@@ -144,7 +158,9 @@ abstract class _$$CartViewStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
+      bool isRecommendationsLoading,
       List<Product> products,
+      List<Product> recommendedProducts,
       Map<int, int> cartQuantities,
       double cartPrice,
       double cartPriceWithoutDiscount,
@@ -169,7 +185,9 @@ class __$$CartViewStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isRecommendationsLoading = null,
     Object? products = null,
+    Object? recommendedProducts = null,
     Object? cartQuantities = null,
     Object? cartPrice = null,
     Object? cartPriceWithoutDiscount = null,
@@ -186,9 +204,17 @@ class __$$CartViewStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRecommendationsLoading: null == isRecommendationsLoading
+          ? _value.isRecommendationsLoading
+          : isRecommendationsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+      recommendedProducts: null == recommendedProducts
+          ? _value._recommendedProducts
+          : recommendedProducts // ignore: cast_nullable_to_non_nullable
               as List<Product>,
       cartQuantities: null == cartQuantities
           ? _value._cartQuantities
@@ -239,7 +265,9 @@ class __$$CartViewStateImplCopyWithImpl<$Res>
 class _$CartViewStateImpl implements _CartViewState {
   const _$CartViewStateImpl(
       {this.isLoading = false,
+      this.isRecommendationsLoading = false,
       final List<Product> products = const [],
+      final List<Product> recommendedProducts = const [],
       final Map<int, int> cartQuantities = const {},
       this.cartPrice = 0.0,
       this.cartPriceWithoutDiscount = 0.0,
@@ -251,11 +279,15 @@ class _$CartViewStateImpl implements _CartViewState {
       this.isReadyToOrder = false,
       this.isError = false})
       : _products = products,
+        _recommendedProducts = recommendedProducts,
         _cartQuantities = cartQuantities;
 
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isRecommendationsLoading;
   final List<Product> _products;
   @override
   @JsonKey()
@@ -263,6 +295,16 @@ class _$CartViewStateImpl implements _CartViewState {
     if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_products);
+  }
+
+  final List<Product> _recommendedProducts;
+  @override
+  @JsonKey()
+  List<Product> get recommendedProducts {
+    if (_recommendedProducts is EqualUnmodifiableListView)
+      return _recommendedProducts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_recommendedProducts);
   }
 
   final Map<int, int> _cartQuantities;
@@ -304,7 +346,7 @@ class _$CartViewStateImpl implements _CartViewState {
 
   @override
   String toString() {
-    return 'CartViewState(isLoading: $isLoading, products: $products, cartQuantities: $cartQuantities, cartPrice: $cartPrice, cartPriceWithoutDiscount: $cartPriceWithoutDiscount, discount: $discount, deliveryPrice: $deliveryPrice, totalPrice: $totalPrice, minOrderPrice: $minOrderPrice, currency: $currency, isReadyToOrder: $isReadyToOrder, isError: $isError)';
+    return 'CartViewState(isLoading: $isLoading, isRecommendationsLoading: $isRecommendationsLoading, products: $products, recommendedProducts: $recommendedProducts, cartQuantities: $cartQuantities, cartPrice: $cartPrice, cartPriceWithoutDiscount: $cartPriceWithoutDiscount, discount: $discount, deliveryPrice: $deliveryPrice, totalPrice: $totalPrice, minOrderPrice: $minOrderPrice, currency: $currency, isReadyToOrder: $isReadyToOrder, isError: $isError)';
   }
 
   @override
@@ -314,7 +356,12 @@ class _$CartViewStateImpl implements _CartViewState {
             other is _$CartViewStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(
+                    other.isRecommendationsLoading, isRecommendationsLoading) ||
+                other.isRecommendationsLoading == isRecommendationsLoading) &&
             const DeepCollectionEquality().equals(other._products, _products) &&
+            const DeepCollectionEquality()
+                .equals(other._recommendedProducts, _recommendedProducts) &&
             const DeepCollectionEquality()
                 .equals(other._cartQuantities, _cartQuantities) &&
             (identical(other.cartPrice, cartPrice) ||
@@ -341,7 +388,9 @@ class _$CartViewStateImpl implements _CartViewState {
   int get hashCode => Object.hash(
       runtimeType,
       isLoading,
+      isRecommendationsLoading,
       const DeepCollectionEquality().hash(_products),
+      const DeepCollectionEquality().hash(_recommendedProducts),
       const DeepCollectionEquality().hash(_cartQuantities),
       cartPrice,
       cartPriceWithoutDiscount,
@@ -363,7 +412,9 @@ class _$CartViewStateImpl implements _CartViewState {
 abstract class _CartViewState implements CartViewState {
   const factory _CartViewState(
       {final bool isLoading,
+      final bool isRecommendationsLoading,
       final List<Product> products,
+      final List<Product> recommendedProducts,
       final Map<int, int> cartQuantities,
       final double cartPrice,
       final double cartPriceWithoutDiscount,
@@ -378,7 +429,11 @@ abstract class _CartViewState implements CartViewState {
   @override
   bool get isLoading;
   @override
+  bool get isRecommendationsLoading;
+  @override
   List<Product> get products;
+  @override
+  List<Product> get recommendedProducts;
   @override
   Map<int, int> get cartQuantities;
   @override

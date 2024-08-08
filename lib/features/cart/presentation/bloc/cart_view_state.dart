@@ -10,7 +10,9 @@ part 'cart_view_state.freezed.dart';
 class CartViewState with _$CartViewState {
   const factory CartViewState({
     @Default(false) bool isLoading,
+    @Default(false) bool isRecommendationsLoading,
     @Default([]) List<Product> products,
+    @Default([]) List<Product> recommendedProducts,
     @Default({}) Map<int, int> cartQuantities,
     @Default(0.0) double cartPrice,
     @Default(0.0) double cartPriceWithoutDiscount,

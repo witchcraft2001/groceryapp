@@ -4,11 +4,10 @@ import 'dart:async';
 // Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:grocery_app/core/extensions/iterable_extensions.dart';
-import 'package:injectable/injectable.dart';
-
 import '../../../../core/data/constants.dart';
 import '../../../../core/data/service/log_service.dart';
 import '../../../../core/domain/entity/product.dart';
@@ -100,8 +99,35 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         ),
         emit,
       );
+      if (oldProductIds.length != cartItems.length) {
+        await _updateRecommendations(emit);
+      }
     } catch (e, stack) {
       await _logService.recordError(e, stack);
+      _updateState(
+        _getState().copyWith(isLoading: false),
+        emit,
+      );
+    }
+  }
+
+  Future<void> _updateRecommendations(Emitter<CartState> emit) async {
+    _updateState(
+      _getState().copyWith(isRecommendationsLoading: true, recommendedProducts: []),
+      emit,
+    );
+    try {
+      final recommended = await _productsInteractor.getRecommendationsByIds(
+        _cartInteractor.getCartItems().keys.toList(growable: false),
+        _constants.recommendationCount,
+      );
+      _updateState(
+        _getState().copyWith(isRecommendationsLoading: false, recommendedProducts: recommended),
+        emit,
+      );
+    } catch (e, stack) {
+      await _logService.recordError(e, stack);
+      _updateState(_getState().copyWith(isRecommendationsLoading: false), emit);
     }
   }
 
@@ -115,9 +141,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   Future<void> _updateFavorite(Product product, Emitter<CartState> emit) async {
     final products = _getState().products;
-    if (products.any((e) => e.id == product.id)) {
+    final recommended = _getState().recommendedProducts;
+    if (products.any((e) => e.id == product.id) || recommended.any((e) => e.id == product.id)) {
       final newState = _getState().copyWith(
         products: products.map((e) => e.id == product.id ? product : e).toList(growable: false),
+        recommendedProducts:
+            recommended.map((e) => e.id == product.id ? product : e).toList(growable: false),
       );
       _updateState(newState, emit);
     }
@@ -129,8 +158,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           ? await _favoritesInteractor.removeFavoriteProduct(product.id)
           : await _favoritesInteractor.addFavoriteProduct(product.id);
       final products = _getState().products;
+      final recommended = _getState().recommendedProducts;
       final newState = _getState().copyWith(
         products: products.map((e) => e.id == product.id ? newProduct : e).toList(growable: false),
+        recommendedProducts:
+            recommended.map((e) => e.id == product.id ? newProduct : e).toList(growable: false),
       );
       _updateState(newState, emit);
     } catch (e, stack) {

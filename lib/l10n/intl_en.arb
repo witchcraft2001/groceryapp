@@ -14,5 +14,6 @@
   "delivery": "Delivery:",
   "discount": "Discount:",
   "checkout": "Checkout",
+  "recommendations": "Recommendations:",
   "beforeFreeDelivery": "{price} before free delivery"
 }

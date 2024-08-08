@@ -50,6 +50,8 @@ class AppSizes {
   static const pl64 = EdgeInsets.only(left: sp64);
 
   static const pl8pr24 = EdgeInsets.only(left: sp8, right: sp24);
+  static const pl16pr4v4 = EdgeInsets.only(left: sp16, right: sp4, top: sp4, bottom: sp4);
+
   static const pl24t24 = EdgeInsets.only(left: sp24, top: sp24);
   static const pl24r16 = EdgeInsets.only(left: sp24, right: sp16);
 
@@ -61,6 +63,7 @@ class AppSizes {
   static const pr24 = EdgeInsets.only(right: sp24);
   static const pr32 = EdgeInsets.only(right: sp32);
 
+  static const pr16pl4v4 = EdgeInsets.only(left: sp4, right: sp16, top: sp4, bottom: sp4);
   static const pr24b24 = EdgeInsets.only(bottom: sp24, right: sp24);
 
   static const ph4 = EdgeInsets.symmetric(horizontal: sp4);

@@ -1,5 +1,8 @@
 // Package imports:
 
+// Dart imports:
+import 'dart:math';
+
 // Package imports:
 import 'package:injectable/injectable.dart';
 
@@ -143,6 +146,18 @@ class ProductsDataSource {
       ratesCount: 12,
     ),
   ];
+
+  Future<List<ProductData>> getRecommendationsByIds(List<int> ids, int count) async {
+    return await Future.microtask(() {
+      final products = _items.where((e) => !ids.contains(e.id)).toList();
+      final recommended = List<ProductData>.empty(growable: true);
+      for (int i = 0; i < min(count, products.length); i++) {
+        final index = Random().nextInt(products.length);
+        recommended.add(products.removeAt(index));
+      }
+      return recommended;
+    });
+  }
 
   Future<List<ProductData>> getProductsByIds(List<int> ids) async {
     // Just for create async task

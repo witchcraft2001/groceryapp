@@ -21,4 +21,9 @@ class ProductsRepository {
       (await _dataSource.getProductsByIds(ids))
           .map((e) => e.toDomain())
           .toList(growable: false);
+
+  Future<List<Product>> getRecommendationsByIds(List<int> ids, int count) async =>
+      (await _dataSource.getRecommendationsByIds(ids, count))
+          .map((e) => e.toDomain())
+          .toList(growable: false);
 }

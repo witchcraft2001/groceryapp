@@ -11,9 +11,9 @@ import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_card.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
 import 'package:grocery_app/core/ui/common/price_info.dart';
-import '../../../../../core/domain/entity/product.dart';
-import '../../../../../core/ui/common/add_product_to_cart_button.dart';
-import '../../../../../core/ui/common/favorite_button.dart';
+import '../../domain/entity/product.dart';
+import 'add_product_to_cart_button.dart';
+import 'favorite_button.dart';
 
 class ProductItem extends StatelessWidget {
   final Product item;
@@ -42,6 +42,10 @@ class ProductItem extends StatelessWidget {
       child: AppCard(
         child: SizedBox(
           height: AppSizes.productItemHeight,
+          // constraints: const BoxConstraints(
+          //     minWidth: AppSizes.productItemWidth, maxWidth: AppSizes.productItemWidth * 2,
+          //   minHeight: AppSizes.productItemHeight,
+          // ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

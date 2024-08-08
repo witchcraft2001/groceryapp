@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Minimal order price:"),
         "orderPrice": MessageLookupByLibrary.simpleMessage("Order price"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "recommendations":
+            MessageLookupByLibrary.simpleMessage("Recommendations:"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total price:")
       };
 }

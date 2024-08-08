@@ -26,4 +26,10 @@ class ProductsInteractor {
         const Duration(milliseconds: 300),
         () => _repository.getProductsByIds(ids),
       );
+
+  // Delayed retrieving for show visual effects
+  Future<List<Product>> getRecommendationsByIds(List<int> ids, int count) => Future.delayed(
+        const Duration(milliseconds: 300),
+        () => _repository.getRecommendationsByIds(ids, count),
+      );
 }

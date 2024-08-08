@@ -14,11 +14,12 @@ import 'package:grocery_app/core/ui/common/app_decorations.dart';
 import 'package:grocery_app/core/ui/common/app_shimmer.dart';
 import 'package:grocery_app/core/ui/common/app_shimmer_content.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
+import 'package:grocery_app/core/ui/common/product_item.dart';
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_bloc.dart';
 import 'package:grocery_app/features/catalog/presentation/bloc/catalog_view_state.dart';
 import 'package:grocery_app/features/catalog/presentation/mixin/product_item_cross_axis_count_calculator.dart';
-import 'package:grocery_app/features/catalog/presentation/widgets/content/product_item.dart';
 import '../../../../core/ui/common/grocery_app_bar.dart';
+import '../../../../core/ui/common/product_item_shimmer.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../injection.dart';
 

@@ -12,6 +12,8 @@ class _CartList extends StatelessWidget {
   final double totalPrice;
   final double minOrderPrice;
   final bool isReadyToOrder;
+  final bool isRecommendationsLoading;
+  final List<Product> recommendedProducts;
   final ValueChanged<Product> onIncreaseTap;
   final ValueChanged<Product> onDecreaseTap;
   final ValueChanged<Product> onFavoriteTap;
@@ -33,6 +35,8 @@ class _CartList extends StatelessWidget {
     required this.totalPrice,
     required this.isReadyToOrder,
     required this.minOrderPrice,
+    required this.isRecommendationsLoading,
+    required this.recommendedProducts,
   });
 
   @override
@@ -54,6 +58,8 @@ class _CartList extends StatelessWidget {
             totalPrice: totalPrice,
             isReadyToOrder: isReadyToOrder,
             minOrderPrice: minOrderPrice,
+            isRecommendationsLoading: isRecommendationsLoading,
+            recommendedProducts: recommendedProducts,
           );
   }
 }
@@ -69,6 +75,8 @@ class _CartListLoaded extends StatelessWidget {
   final double totalPrice;
   final double minOrderPrice;
   final bool isReadyToOrder;
+  final bool isRecommendationsLoading;
+  final List<Product> recommendedProducts;
   final ValueChanged<Product> onIncreaseTap;
   final ValueChanged<Product> onDecreaseTap;
   final ValueChanged<Product> onFavoriteTap;
@@ -89,6 +97,8 @@ class _CartListLoaded extends StatelessWidget {
     required this.totalPrice,
     required this.isReadyToOrder,
     required this.minOrderPrice,
+    required this.isRecommendationsLoading,
+    required this.recommendedProducts,
   });
 
   @override
@@ -126,6 +136,16 @@ class _CartListLoaded extends StatelessWidget {
                       },
                       separatorBuilder: (ctx, index) =>
                           Divider(color: context.appTheme?.colors.divider),
+                    ),
+                    SliverToBoxAdapter(
+                      child: RecommendationList(
+                        isLoading: isRecommendationsLoading,
+                        items: recommendedProducts,
+                        onIncreaseTap: onIncreaseTap,
+                        onDecreaseTap: onDecreaseTap,
+                        currency: currency,
+                        onFavoriteTap: onFavoriteTap,
+                      ),
                     ),
                     SliverFillRemaining(
                       hasScrollBody: false,

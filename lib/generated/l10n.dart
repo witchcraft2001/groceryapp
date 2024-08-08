@@ -200,6 +200,16 @@ class S {
     );
   }
 
+  /// `Recommendations:`
+  String get recommendations {
+    return Intl.message(
+      'Recommendations:',
+      name: 'recommendations',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `{price} before free delivery`
   String beforeFreeDelivery(Object price) {
     return Intl.message(
