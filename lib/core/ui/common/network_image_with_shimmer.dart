@@ -1,7 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:grocery_app/core/ui/common/app_decorations.dart';
 
+// Package imports:
+import 'package:cached_network_image/cached_network_image.dart';
+
+// Project imports:
+import 'package:grocery_app/core/ui/common/app_decorations.dart';
 import 'app_shimmer_content.dart';
 
 class NetworkImageWithShimmer extends StatelessWidget {

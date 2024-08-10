@@ -26,6 +26,7 @@ import 'package:grocery_app/core/data/repository/products_repository.dart'
     as _i888;
 import 'package:grocery_app/core/data/repository/settings_repository.dart'
     as _i806;
+import 'package:grocery_app/core/data/repository/user_repository.dart' as _i792;
 import 'package:grocery_app/core/data/service/cart_service.dart' as _i179;
 import 'package:grocery_app/core/data/service/log_service.dart' as _i524;
 import 'package:grocery_app/core/di/module/app_module.dart' as _i312;
@@ -37,6 +38,8 @@ import 'package:grocery_app/core/domain/interactor/favorites_interactor.dart'
     as _i813;
 import 'package:grocery_app/core/domain/interactor/products_interactor.dart'
     as _i607;
+import 'package:grocery_app/core/domain/interactor/user_interactor.dart'
+    as _i159;
 import 'package:grocery_app/core/domain/use_case/get_dark_mode_settings_use_case.dart'
     as _i407;
 import 'package:grocery_app/core/domain/use_case/get_system_theme_settings_use_case.dart'
@@ -53,6 +56,7 @@ import 'package:grocery_app/features/catalog/presentation/bloc/catalog_bloc.dart
 import 'package:grocery_app/features/favorites/presentation/bloc/favorites_bloc.dart'
     as _i573;
 import 'package:grocery_app/features/main/bloc/main_bloc.dart' as _i477;
+import 'package:grocery_app/features/profile/bloc/profile_bloc.dart' as _i982;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
@@ -89,6 +93,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i806.SettingsRepository(gh<_i501.SettingsDataSource>()));
     gh.factory<_i557.UserDataSource>(
         () => _i557.UserDataSource(gh<_i501.SettingsDataSource>()));
+    gh.factory<_i792.UserRepository>(() => _i792.UserRepository(
+          gh<_i557.UserDataSource>(),
+          gh<_i524.LogService>(),
+        ));
     gh.factory<_i383.CategoriesRepository>(
         () => _i383.CategoriesRepository(gh<_i571.CategoriesDataSource>()));
     gh.factory<_i607.ProductsInteractor>(
@@ -111,6 +119,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i813.FavoritesInteractor>(),
           gh<_i585.CartInteractor>(),
         ));
+    gh.lazySingleton<_i159.UserInteractor>(
+        () => _i159.UserInteractor(gh<_i792.UserRepository>()));
     gh.factory<_i257.CartBloc>(() => _i257.CartBloc(
           gh<_i585.CartInteractor>(),
           gh<_i813.FavoritesInteractor>(),
@@ -126,6 +136,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i486.SetSystemThemeSettingsUseCase>(),
           gh<_i161.SetDarkModeSettingsUseCase>(),
         ));
+    gh.factory<_i982.ProfileBloc>(
+        () => _i982.ProfileBloc(gh<_i159.UserInteractor>()));
     gh.factory<_i573.FavoritesBloc>(() => _i573.FavoritesBloc(
           gh<_i813.FavoritesInteractor>(),
           gh<_i524.LogService>(),

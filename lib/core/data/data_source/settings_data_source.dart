@@ -32,4 +32,5 @@ class SettingsDataSource {
 class SettingsRepositoryKeys {
   static const String darkMode = 'is_dark_mode_enabled';
   static const String systemMode = 'is_system_mode_enabled';
+  static const String user = 'user';
 }
