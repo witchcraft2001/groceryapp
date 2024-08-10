@@ -29,14 +29,11 @@ class _CartItem extends StatelessWidget {
         height: AppSizes.favoritesItemHeight,
         child: Row(
           children: [
-            Container(
-              padding: AppSizes.pr8,
-              decoration: BoxDecoration(
-                borderRadius: AppDecoration.brBtnSmall,
-              ),
+            NetworkImageWithShimmer(url: item.cover,
               height: AppSizes.productImageSize,
               width: AppSizes.productImageSize,
-              child: CachedNetworkImage(imageUrl: item.cover),
+              padding: AppSizes.pr8,
+              borderRadius: AppDecoration.brBtnSmall,
             ),
             Flexible(
               child: Padding(

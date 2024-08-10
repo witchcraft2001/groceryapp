@@ -14,6 +14,7 @@ import 'package:grocery_app/core/ui/common/price_info.dart';
 import '../../domain/entity/product.dart';
 import 'add_product_to_cart_button.dart';
 import 'favorite_button.dart';
+import 'network_image_with_shimmer.dart';
 
 class ProductItem extends StatelessWidget {
   final Product item;
@@ -54,7 +55,13 @@ class ProductItem extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.topCenter,
                   children: [
-                    CachedNetworkImage(imageUrl: item.cover),
+                    NetworkImageWithShimmer(url: item.cover,
+                      height: AppSizes.productItemImageHeight,
+                      // width: AppSizes.productImageSize,
+                      padding: AppSizes.pr8,
+                      borderRadius: BorderRadius.zero,
+                    ),
+                    // CachedNetworkImage(imageUrl: item.cover),
                     Positioned(
                       top: AppSizes.sp8,
                       right: AppSizes.sp8,

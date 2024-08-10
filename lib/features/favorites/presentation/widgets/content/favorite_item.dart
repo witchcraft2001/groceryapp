@@ -29,15 +29,21 @@ class _FavoriteItem extends StatelessWidget {
         height: AppSizes.favoritesItemHeight,
         child: Row(
           children: [
-            Container(
-              padding: AppSizes.pr8,
-              decoration: BoxDecoration(
-                borderRadius: AppDecoration.brBtnSmall,
-              ),
+            NetworkImageWithShimmer(url: item.cover,
               height: AppSizes.productImageSize,
               width: AppSizes.productImageSize,
-              child: CachedNetworkImage(imageUrl: item.cover),
+              padding: AppSizes.pr8,
+              borderRadius: AppDecoration.brBtnSmall,
             ),
+            // Container(
+            //   padding: AppSizes.pr8,
+            //   decoration: BoxDecoration(
+            //     borderRadius: AppDecoration.brBtnSmall,
+            //   ),
+            //   height: AppSizes.productImageSize,
+            //   width: AppSizes.productImageSize,
+            //   child: CachedNetworkImage(imageUrl: item.cover),
+            // ),
             Flexible(
               child: Padding(
                 padding: AppSizes.pv8,

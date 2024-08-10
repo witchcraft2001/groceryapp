@@ -21,6 +21,7 @@ import '../../../../core/ui/common/add_product_to_cart_button.dart';
 import '../../../../core/ui/common/app_shimmer.dart';
 import '../../../../core/ui/common/app_shimmer_content.dart';
 import '../../../../core/ui/common/grocery_app_bar.dart';
+import '../../../../core/ui/common/network_image_with_shimmer.dart';
 import '../../../../core/ui/common/price_info.dart';
 import '../../../../generated/l10n.dart';
 

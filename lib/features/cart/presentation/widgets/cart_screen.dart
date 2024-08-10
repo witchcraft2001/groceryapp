@@ -18,6 +18,7 @@ import 'package:grocery_app/injection.dart';
 import '../../../../core/domain/entity/product.dart';
 import '../../../../core/ui/common/add_product_to_cart_button.dart';
 import '../../../../core/ui/common/grocery_app_bar.dart';
+import '../../../../core/ui/common/network_image_with_shimmer.dart';
 import '../../../../core/ui/common/price_info.dart';
 import '../../../../core/util/price_formatter.dart';
 import '../../../../core/util/product_price_calculator.dart';

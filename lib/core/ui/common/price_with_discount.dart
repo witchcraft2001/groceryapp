@@ -28,21 +28,21 @@ class PriceWithDiscount extends StatelessWidget {
     );
     return Row(
       children: [
-        Text(
-          formatPrice(context, price, currency),
-          style: discountPrice != null ? discountStyle : style,
-        ),
-        discountPrice != null
-            ? const SizedBox(
-                width: AppSizes.sp4,
-              )
-            : Container(),
         discountPrice != null
             ? Text(
                 formatPrice(context, discountPrice!, currency),
                 style: style,
               )
             : Container(),
+        discountPrice != null
+            ? const SizedBox(
+                width: AppSizes.sp4,
+              )
+            : Container(),
+        Text(
+          formatPrice(context, price, currency),
+          style: discountPrice != null ? discountStyle : style,
+        ),
       ],
     );
   }

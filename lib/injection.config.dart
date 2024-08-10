@@ -16,6 +16,8 @@ import 'package:grocery_app/core/data/data_source/products_data_source.dart'
     as _i664;
 import 'package:grocery_app/core/data/data_source/settings_data_source.dart'
     as _i501;
+import 'package:grocery_app/core/data/data_source/user_data_source.dart'
+    as _i557;
 import 'package:grocery_app/core/data/repository/categories_repository.dart'
     as _i383;
 import 'package:grocery_app/core/data/repository/favorites_repository.dart'
@@ -85,6 +87,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i311.FavoritesRepository(gh<_i664.ProductsDataSource>()));
     gh.lazySingleton<_i806.SettingsRepository>(
         () => _i806.SettingsRepository(gh<_i501.SettingsDataSource>()));
+    gh.factory<_i557.UserDataSource>(
+        () => _i557.UserDataSource(gh<_i501.SettingsDataSource>()));
     gh.factory<_i383.CategoriesRepository>(
         () => _i383.CategoriesRepository(gh<_i571.CategoriesDataSource>()));
     gh.factory<_i607.ProductsInteractor>(
