@@ -1,4 +1,5 @@
 {
+  "appName": "GroceryApp",
   "main": "Main",
   "cart": "Cart",
   "catalog": "Catalog",
@@ -19,5 +20,6 @@
   "notAuthorizedYet": "You are not authorized yet",
   "authorize": "Authorize",
   "login": "Login",
-  "register": "Register"
+  "register": "Register",
+  "noAccount": "Not have an account?"
 }

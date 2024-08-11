@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:grocery_app/core/theme/data/theme_provider.dart';
 
+// Package imports:
+import 'package:flutter_svg/flutter_svg.dart';
+
+// Project imports:
+import 'package:grocery_app/core/theme/data/theme_provider.dart';
+import '../../../generated/l10n.dart';
 import 'app_assets.dart';
 
 class AppLogo extends StatelessWidget {
@@ -13,7 +18,7 @@ class AppLogo extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'GroceryApp',
+          S.current.appName,
           style: context.appTheme?.text.w700s24cMain.copyWith(
             color: context.appTheme?.colors.whiteOnColor,
           ),

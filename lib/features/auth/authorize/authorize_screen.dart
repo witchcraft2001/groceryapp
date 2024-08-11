@@ -1,12 +1,17 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
+
+// Project imports:
+import 'package:grocery_app/core/common/app_routes.dart';
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_button.dart';
 import 'package:grocery_app/core/ui/common/app_decorations.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
 import 'package:grocery_app/core/ui/common/svg_icon_button.dart';
 import 'package:grocery_app/generated/l10n.dart';
-
 import '../../../core/ui/common/app_assets.dart';
 import '../../../core/ui/common/app_logo.dart';
 
@@ -65,6 +70,7 @@ class AuthorizeScreen extends StatelessWidget {
           AppButton(
             padding: AppSizes.ph16v8,
             title: S.current.login,
+            onPressed: () => AppRoutes.pushLogin(context),
           ),
           AppButton(
             padding: AppSizes.ph16t4b16,

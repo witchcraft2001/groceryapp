@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `GroceryApp`
+  String get appName {
+    return Intl.message(
+      'GroceryApp',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Main`
   String get main {
     return Intl.message(
@@ -255,6 +265,16 @@ class S {
     return Intl.message(
       'Register',
       name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not have an account?`
+  String get noAccount {
+    return Intl.message(
+      'Not have an account?',
+      name: 'noAccount',
       desc: '',
       args: [],
     );

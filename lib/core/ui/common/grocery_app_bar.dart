@@ -16,6 +16,7 @@ class GroceryAppBar extends StatelessWidget implements PreferredSizeWidget {
   final EdgeInsets? titlePadding;
   final VoidCallback? onBackPressed;
   final Widget? backgroundWidget;
+  final Color? backgroundColor;
 
   const GroceryAppBar({
     super.key,
@@ -25,7 +26,9 @@ class GroceryAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.toolbarHeight,
     this.onBackPressed,
-    this.titlePadding, this.backgroundWidget,
+    this.titlePadding,
+    this.backgroundWidget,
+    this.backgroundColor,
   });
 
   @override
@@ -34,7 +37,8 @@ class GroceryAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: elevation,
       toolbarHeight: preferredSize.height,
       centerTitle: true,
-      backgroundColor: elevation == 0.0 ? context.appTheme?.colors.bgForms : Colors.white,
+      backgroundColor:
+          backgroundColor ?? (elevation == 0.0 ? context.appTheme?.colors.bgForms : Colors.white),
       automaticallyImplyLeading: false,
       titleSpacing: 0,
       title: Stack(

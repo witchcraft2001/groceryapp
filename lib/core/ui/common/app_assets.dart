@@ -1,7 +1,9 @@
 class AppAssets {
   AppAssets._();
   static String bgEllipse = 'assets/images/bg_ellipse.svg';
+  static String imageMan = 'assets/images/img_man.svg';
   static String imagePeople = 'assets/images/img_people.svg';
+  static String imageWoman = 'assets/images/img_woman.svg';
   static String iconAdd = 'assets/images/ic_add_line.svg';
   static String iconBerries = 'assets/images/ic_berries.svg';
   static String iconBerriesActive = 'assets/images/ic_berries_active.svg';

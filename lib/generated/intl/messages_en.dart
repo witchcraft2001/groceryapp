@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "amount": MessageLookupByLibrary.simpleMessage("Amount:"),
         "amountWithDiscount":
             MessageLookupByLibrary.simpleMessage("Amount with discount:"),
+        "appName": MessageLookupByLibrary.simpleMessage("GroceryApp"),
         "authorize": MessageLookupByLibrary.simpleMessage("Authorize"),
         "beforeFreeDelivery": m0,
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
@@ -41,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "main": MessageLookupByLibrary.simpleMessage("Main"),
         "minOrderPrice":
             MessageLookupByLibrary.simpleMessage("Minimal order price:"),
+        "noAccount":
+            MessageLookupByLibrary.simpleMessage("Not have an account?"),
         "notAuthorizedYet":
             MessageLookupByLibrary.simpleMessage("You are not authorized yet"),
         "orderPrice": MessageLookupByLibrary.simpleMessage("Order price"),

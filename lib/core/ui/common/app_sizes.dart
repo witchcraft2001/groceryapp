@@ -87,6 +87,7 @@ class AppSizes {
   static const ph16t4b16 = EdgeInsets.fromLTRB(sp16, sp4, sp16, sp16);
 
   static const pl20r8b12 = EdgeInsets.fromLTRB(sp20, 0.0, sp8, sp12);
+  static const pl16pt40 = EdgeInsets.fromLTRB(sp16, sp40, 0.0, 0.0);
 
   static const ph24t24 = EdgeInsets.fromLTRB(sp24, sp24, sp24, 0.0);
   static const ph24t4b16 = EdgeInsets.fromLTRB(sp24, sp4, sp24, sp16);
