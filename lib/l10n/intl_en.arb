@@ -15,5 +15,9 @@
   "discount": "Discount:",
   "checkout": "Checkout",
   "recommendations": "Recommendations:",
-  "beforeFreeDelivery": "{price} before free delivery"
+  "beforeFreeDelivery": "{price} before free delivery",
+  "notAuthorizedYet": "You are not authorized yet",
+  "authorize": "Authorize",
+  "login": "Login",
+  "register": "Register"
 }

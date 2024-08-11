@@ -13,12 +13,13 @@ class _ProfileScreenNonAuthorized extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "You are not authorized yet",
+                S.current.notAuthorizedYet,
                 style: context.appTheme?.text.w600s16cMain,
               ),
               AppButton(
                 padding: AppSizes.p16,
-                title: "Authorize",
+                title: S.current.authorize,
+                onPressed: ()=>AppRoutes.pushAuthorize(context),
               ),
             ],
           ),

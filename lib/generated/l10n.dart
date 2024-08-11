@@ -219,6 +219,46 @@ class S {
       args: [price],
     );
   }
+
+  /// `You are not authorized yet`
+  String get notAuthorizedYet {
+    return Intl.message(
+      'You are not authorized yet',
+      name: 'notAuthorizedYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Authorize`
+  String get authorize {
+    return Intl.message(
+      'Authorize',
+      name: 'authorize',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

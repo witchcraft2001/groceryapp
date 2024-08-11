@@ -1,5 +1,7 @@
 class AppAssets {
   AppAssets._();
+  static String bgEllipse = 'assets/images/bg_ellipse.svg';
+  static String imagePeople = 'assets/images/img_people.svg';
   static String iconAdd = 'assets/images/ic_add_line.svg';
   static String iconBerries = 'assets/images/ic_berries.svg';
   static String iconBerriesActive = 'assets/images/ic_berries_active.svg';
@@ -27,6 +29,7 @@ class AppAssets {
   static String iconHeartLine = 'assets/images/ic_heart_line.svg';
   static String iconHome = 'assets/images/ic_home.svg';
   static String iconHomeSelected = 'assets/images/ic_home_active.svg';
+  static String iconLogo = 'assets/images/ic_logo.svg';
   static String iconMeat = 'assets/images/ic_meat.svg';
   static String iconMeatActive = 'assets/images/ic_meat_active.svg';
   static String iconMilk = 'assets/images/ic_milk.svg';

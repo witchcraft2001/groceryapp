@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "amount": MessageLookupByLibrary.simpleMessage("Amount:"),
         "amountWithDiscount":
             MessageLookupByLibrary.simpleMessage("Amount with discount:"),
+        "authorize": MessageLookupByLibrary.simpleMessage("Authorize"),
         "beforeFreeDelivery": m0,
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "cartItems": MessageLookupByLibrary.simpleMessage("Cart items:"),
@@ -36,13 +37,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "delivery": MessageLookupByLibrary.simpleMessage("Delivery:"),
         "discount": MessageLookupByLibrary.simpleMessage("Discount:"),
         "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
         "main": MessageLookupByLibrary.simpleMessage("Main"),
         "minOrderPrice":
             MessageLookupByLibrary.simpleMessage("Minimal order price:"),
+        "notAuthorizedYet":
+            MessageLookupByLibrary.simpleMessage("You are not authorized yet"),
         "orderPrice": MessageLookupByLibrary.simpleMessage("Order price"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "recommendations":
             MessageLookupByLibrary.simpleMessage("Recommendations:"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("Total price:")
       };
 }
