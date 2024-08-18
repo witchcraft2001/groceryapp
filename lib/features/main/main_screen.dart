@@ -15,6 +15,7 @@ import 'package:grocery_app/features/favorites/presentation/widgets/favorites_sc
 import 'package:grocery_app/features/main/bloc/main_bloc.dart';
 import 'package:grocery_app/features/profile/widgets/profile_screen.dart';
 import 'package:grocery_app/injection.dart';
+
 import '../../generated/l10n.dart';
 import '../cart/presentation/widgets/cart_screen.dart';
 
@@ -121,36 +122,100 @@ class _NavigationBarItemIconWithBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return count == 0
-        ? SvgPicture.asset(asset)
-        : Stack(
-            children: <Widget>[
-              SvgPicture.asset(asset),
-              Positioned(
-                right: 0,
-                child: Container(
-                  padding: const EdgeInsets.all(1),
-                  decoration: BoxDecoration(
-                    color: context.appTheme?.colors.primary,
-                    borderRadius: AppDecoration.brBtnSmall,
+    return Stack(
+      children: <Widget>[
+        SvgPicture.asset(asset),
+        Positioned(
+          right: 0,
+          child: _AnimatedBadge(
+            count: count,
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class _AnimatedBadge extends StatefulWidget {
+  final int count;
+
+  const _AnimatedBadge({super.key, required this.count});
+
+  @override
+  State<_AnimatedBadge> createState() => _AnimatedBadgeState();
+}
+
+class _AnimatedBadgeState extends State<_AnimatedBadge> with TickerProviderStateMixin {
+  late AnimationController _scaleController;
+  late Animation<double> _scaleAnimation;
+
+  double scaleValue = 1.0;
+
+  @override
+  void initState() {
+    _scaleController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 200),
+    );
+
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.5).animate(_scaleController);
+    _scaleController.addListener(() {
+      setState(() {
+        scaleValue = _scaleAnimation.value;
+      });
+    });
+    _scaleController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _scaleController.reverse();
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Transform.scale(
+      scale: scaleValue,
+      child: widget.count > 0
+          ? Container(
+              padding: const EdgeInsets.all(1),
+              decoration: BoxDecoration(
+                color: context.appTheme?.colors.primary,
+                borderRadius: AppDecoration.brBtnSmall,
+              ),
+              constraints: const BoxConstraints(
+                minWidth: 11,
+                minHeight: 11,
+              ),
+              child: Center(
+                child: Text(
+                  '${widget.count}',
+                  style: TextStyle(
+                    color: context.appTheme?.colors.whiteOnColor,
+                    fontSize: 8,
                   ),
-                  constraints: const BoxConstraints(
-                    minWidth: 11,
-                    minHeight: 11,
-                  ),
-                  child: Center(
-                    child: Text(
-                      '$count',
-                      style: TextStyle(
-                        color: context.appTheme?.colors.whiteOnColor,
-                        fontSize: 8,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
+                  textAlign: TextAlign.center,
                 ),
-              )
-            ],
-          );
+              ),
+            )
+          : Container(),
+    );
+  }
+
+  @override
+  void didUpdateWidget(covariant _AnimatedBadge oldWidget) {
+    if (oldWidget.count != widget.count) {
+      if (_scaleController.isAnimating) {
+        _scaleController.stop();
+      }
+      _scaleController.forward();
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void dispose() {
+    _scaleController.dispose();
+    super.dispose();
   }
 }
