@@ -24,6 +24,7 @@ class AppSizes {
   static const pb16 = EdgeInsets.only(bottom: sp16);
   static const pb24 = EdgeInsets.only(bottom: sp24);
   static const pb32 = EdgeInsets.only(bottom: sp32);
+  static const pb64 = EdgeInsets.only(bottom: sp64);
 
   static const pt4 = EdgeInsets.only(top: sp4);
   static const pt8 = EdgeInsets.only(top: sp8);
@@ -145,6 +146,7 @@ class AppSizes {
   static const p64 = EdgeInsets.all(sp64);
 
   static const double categoryIcon = sp40;
+  static const double iconButtonSize = sp40;
 
   // - texts
   static const double shimmerTextS = sp12;

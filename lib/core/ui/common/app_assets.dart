@@ -2,8 +2,10 @@ class AppAssets {
   AppAssets._();
   static String bgEllipse = 'assets/images/bg_ellipse.svg';
   static String imageMan = 'assets/images/img_man.svg';
-  static String imagePeople = 'assets/images/img_people.svg';
-  static String imageWoman = 'assets/images/img_woman.svg';
+  static String bgAuthorize = 'assets/images/img_auth_back.jpg';
+  static String bgGradient = 'assets/images/bg_gradient.jpg';
+  static String bgLogin = 'assets/images/img_login_back.jpg';
+  static String bgRegister = 'assets/images/img_register_back.png';
   static String iconAdd = 'assets/images/ic_add_line.svg';
   static String iconBerries = 'assets/images/ic_berries.svg';
   static String iconBerriesActive = 'assets/images/ic_berries_active.svg';

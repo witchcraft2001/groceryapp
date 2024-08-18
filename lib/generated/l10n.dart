@@ -260,6 +260,46 @@ class S {
     );
   }
 
+  /// `E-Mail`
+  String get email {
+    return Intl.message(
+      'E-Mail',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get firstName {
+    return Intl.message(
+      'Name',
+      name: 'firstName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message(
+      'Phone',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Register`
   String get register {
     return Intl.message(
@@ -270,11 +310,81 @@ class S {
     );
   }
 
-  /// `Not have an account?`
+  /// `Don't have an account?`
   String get noAccount {
     return Intl.message(
-      'Not have an account?',
+      'Don\'t have an account?',
       name: 'noAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get haveAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'haveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back!`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome back!',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create account`
+  String get createAccount {
+    return Intl.message(
+      'Create account',
+      name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quickly create account`
+  String get createAccountSubtitle {
+    return Intl.message(
+      'Quickly create account',
+      name: 'createAccountSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in to your account`
+  String get signIn {
+    return Intl.message(
+      'Sign in to your account',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome`
+  String get welcome {
+    return Intl.message(
+      'Welcome',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot password`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot password',
+      name: 'forgotPassword',
       desc: '',
       args: [],
     );

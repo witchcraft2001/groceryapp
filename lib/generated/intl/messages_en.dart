@@ -35,22 +35,37 @@ class MessageLookup extends MessageLookupByLibrary {
         "cartItems": MessageLookupByLibrary.simpleMessage("Cart items:"),
         "catalog": MessageLookupByLibrary.simpleMessage("Catalog"),
         "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
+        "createAccount": MessageLookupByLibrary.simpleMessage("Create account"),
+        "createAccountSubtitle":
+            MessageLookupByLibrary.simpleMessage("Quickly create account"),
         "delivery": MessageLookupByLibrary.simpleMessage("Delivery:"),
         "discount": MessageLookupByLibrary.simpleMessage("Discount:"),
+        "email": MessageLookupByLibrary.simpleMessage("E-Mail"),
         "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
+        "firstName": MessageLookupByLibrary.simpleMessage("Name"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot password"),
+        "haveAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "main": MessageLookupByLibrary.simpleMessage("Main"),
         "minOrderPrice":
             MessageLookupByLibrary.simpleMessage("Minimal order price:"),
         "noAccount":
-            MessageLookupByLibrary.simpleMessage("Not have an account?"),
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "notAuthorizedYet":
             MessageLookupByLibrary.simpleMessage("You are not authorized yet"),
         "orderPrice": MessageLookupByLibrary.simpleMessage("Order price"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "recommendations":
             MessageLookupByLibrary.simpleMessage("Recommendations:"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
-        "totalPrice": MessageLookupByLibrary.simpleMessage("Total price:")
+        "signIn":
+            MessageLookupByLibrary.simpleMessage("Sign in to your account"),
+        "totalPrice": MessageLookupByLibrary.simpleMessage("Total price:"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back!")
       };
 }

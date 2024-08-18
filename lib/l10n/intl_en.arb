@@ -20,6 +20,17 @@
   "notAuthorizedYet": "You are not authorized yet",
   "authorize": "Authorize",
   "login": "Login",
+  "email": "E-Mail",
+  "password": "Password",
+  "firstName": "Name",
+  "phone": "Phone",
   "register": "Register",
-  "noAccount": "Not have an account?"
+  "noAccount": "Don't have an account?",
+  "haveAccount": "Already have an account?",
+  "welcomeBack": "Welcome back!",
+  "createAccount": "Create account",
+  "createAccountSubtitle": "Quickly create account",
+  "signIn": "Sign in to your account",
+  "welcome": "Welcome",
+  "forgotPassword": "Forgot password"
 }

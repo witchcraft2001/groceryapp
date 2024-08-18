@@ -13,8 +13,8 @@ import '../../../../core/ui/common/app_logo.dart';
 import '../../../../core/ui/common/app_textfield.dart';
 import '../../../../core/ui/common/svg_icon_button.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AppAssets.bgLogin),
+                image: AssetImage(AppAssets.bgAuthorize),
                 fit: BoxFit.cover,
               ),
             ),
@@ -86,21 +86,37 @@ class LoginScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                S.current.welcomeBack,
+                                S.current.createAccount,
                                 style: context.appTheme?.text.w600s16cMain,
                               ),
                               const SizedBox(
                                 height: AppSizes.sp4,
                               ),
                               Text(
-                                S.current.signIn,
+                                S.current.createAccountSubtitle,
                                 style: context.appTheme?.text.w600s14cSignatures,
                               ),
                               const SizedBox(
                                 height: AppSizes.sp12,
                               ),
                               AppTextField(
+                                label: S.current.firstName,
+                                text: '',
+                                onChanged: (String value) {},
+                              ),
+                              const SizedBox(
+                                height: AppSizes.sp8,
+                              ),
+                              AppTextField(
                                 label: S.current.email,
+                                text: '',
+                                onChanged: (String value) {},
+                              ),
+                              const SizedBox(
+                                height: AppSizes.sp8,
+                              ),
+                              AppTextField(
+                                label: S.current.phone,
                                 text: '',
                                 onChanged: (String value) {},
                               ),
@@ -112,21 +128,9 @@ class LoginScreen extends StatelessWidget {
                                 text: '',
                                 onChanged: (String value) {},
                               ),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Padding(
-                                  padding: AppSizes.pt8,
-                                  child: Text(
-                                    S.current.forgotPassword,
-                                    style: context.appTheme?.text.w600s12cSignatures.copyWith(
-                                      color: context.appTheme?.colors.primary,
-                                    ),
-                                  ),
-                                ),
-                              ),
                               AppButton(
                                 padding: AppSizes.pt16,
-                                title: S.current.login,
+                                title: S.current.register,
                               ),
                               Padding(
                                 padding: AppSizes.pt16,
@@ -134,7 +138,7 @@ class LoginScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      S.current.noAccount,
+                                      S.current.haveAccount,
                                       style: context.appTheme?.text.w400s12cMain.copyWith(
                                         color: context.appTheme?.colors.primary,
                                       ),
@@ -143,7 +147,7 @@ class LoginScreen extends StatelessWidget {
                                       width: AppSizes.sp4,
                                     ),
                                     Text(
-                                      S.current.register,
+                                      S.current.login,
                                       style: context.appTheme?.text.w600s12cSignatures.copyWith(
                                         color: context.appTheme?.colors.primary,
                                       ),
