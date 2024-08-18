@@ -13,7 +13,7 @@ import 'app_decorations.dart';
 import 'app_icon_button.dart';
 import 'app_sizes.dart';
 
-class AddProductToCartButton extends StatelessWidget {
+class AddProductToCartButton extends StatefulWidget {
   final int quantity;
   final double multiplicity;
   final String quantityUnit;
@@ -32,20 +32,80 @@ class AddProductToCartButton extends StatelessWidget {
   });
 
   @override
+  State<AddProductToCartButton> createState() => _AddProductToCartButtonState();
+}
+
+class _AddProductToCartButtonState extends State<AddProductToCartButton>
+    with TickerProviderStateMixin {
+  late AnimationController _opacityController;
+  late Animation<double> _opacityAnimation;
+
+  double _opacityValue = 0.0;
+
+  @override
+  void initState() {
+    _opacityValue = widget.quantity > 1 ? 1.0 : 0.0;
+    _opacityController = AnimationController(
+      vsync: this,
+      lowerBound: 0.0,
+      upperBound: 1.0,
+      duration: const Duration(milliseconds: 300),
+    );
+    _opacityAnimation = CurvedAnimation(parent: _opacityController, curve: Curves.easeInOut);
+    _opacityController.addListener(() {
+      setState(() {
+        _opacityValue = _opacityAnimation.value;
+      });
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return quantity == 0
-        ? _AddToCartButton(
-            padding: padding ?? EdgeInsets.zero,
-            onIncreaseTap: onIncreaseTap,
-          )
-        : _PlusMinusButton(
-            padding: padding ?? EdgeInsets.zero,
-            quantity: quantity,
-            quantityUnit: quantityUnit,
-            onIncreaseTap: onIncreaseTap,
-            onDecreaseTap: onDecreaseTap,
-            multiplicity: multiplicity,
-          );
+    return Stack(
+      children: [
+        _opacityValue < 0.95
+            ? Opacity(
+                opacity: 1.0 - _opacityValue,
+                child: _AddToCartButton(
+                  padding: widget.padding ?? EdgeInsets.zero,
+                  onIncreaseTap: widget.onIncreaseTap,
+                ),
+              )
+            : Container(),
+        _opacityValue > 0.05
+            ? Opacity(
+                opacity: _opacityValue,
+                child: _PlusMinusButton(
+                  padding: widget.padding ?? EdgeInsets.zero,
+                  quantity: widget.quantity > 1 ? widget.quantity : 1,
+                  quantityUnit: widget.quantityUnit,
+                  onIncreaseTap: widget.onIncreaseTap,
+                  onDecreaseTap: widget.onDecreaseTap,
+                  multiplicity: widget.multiplicity,
+                ),
+              )
+            : Container(),
+      ],
+    );
+  }
+
+  @override
+  void didUpdateWidget(covariant AddProductToCartButton oldWidget) {
+    if (oldWidget.quantity == 0 && widget.quantity != 0) {
+      _opacityController.stop();
+      _opacityController.forward();
+    } else if (oldWidget.quantity != 0 && widget.quantity == 0) {
+      _opacityController.stop();
+      _opacityController.reverse();
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void dispose() {
+    _opacityController.dispose();
+    super.dispose();
   }
 }
 

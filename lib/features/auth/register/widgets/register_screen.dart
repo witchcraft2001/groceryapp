@@ -6,7 +6,6 @@ import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_button.dart';
 import 'package:grocery_app/core/ui/common/app_sizes.dart';
 import 'package:grocery_app/generated/l10n.dart';
-
 import '../../../../core/ui/common/app_assets.dart';
 import '../../../../core/ui/common/app_decorations.dart';
 import '../../../../core/ui/common/app_logo.dart';
