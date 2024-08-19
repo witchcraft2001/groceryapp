@@ -126,6 +126,7 @@ class _FavoriteItem extends StatelessWidget {
                         SizedBox(
                           width: AppSizes.productItemWidth,
                           child: AddProductToCartButton(
+                            key: ValueKey(item.id),
                             quantity: quantity,
                             quantityUnit: item.quantityUnit,
                             multiplicity: item.multiplicity,

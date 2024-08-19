@@ -3,9 +3,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:cached_network_image/cached_network_image.dart';
-
 // Project imports:
 import 'package:grocery_app/core/theme/data/theme_provider.dart';
 import 'package:grocery_app/core/ui/common/app_card.dart';
@@ -110,6 +107,7 @@ class ProductItem extends StatelessWidget {
                 height: AppSizes.sp4,
               ),
               AddProductToCartButton(
+                key: ValueKey(item.id),
                 padding: AppSizes.p8,
                 quantity: quantity,
                 quantityUnit: item.quantityUnit,
